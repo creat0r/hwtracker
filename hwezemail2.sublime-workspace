@@ -1,0 +1,1298 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"hom",
+				"homeworklib"
+			],
+			[
+				"assignment",
+				"assignmentname"
+			],
+			[
+				"stu",
+				"students"
+			],
+			[
+				"student",
+				"studentname"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"stude",
+				"student"
+			],
+			[
+				"date",
+				"dateformat"
+			],
+			[
+				"advi",
+				"advisoratt"
+			],
+			[
+				"form",
+				"form_validation"
+			],
+			[
+				"parent",
+				"parent_email1"
+			],
+			[
+				"parent_em",
+				"parent_email1"
+			],
+			[
+				"parent_",
+				"parent_email1"
+			],
+			[
+				"principal",
+				"principalprofiledetails"
+			],
+			[
+				"teacher",
+				"teacherdetails"
+			],
+			[
+				"teac",
+				"teacherid"
+			],
+			[
+				"studentid",
+				"studentid"
+			],
+			[
+				"draw",
+				"drawVisualization"
+			],
+			[
+				"T",
+				"TRUE"
+			],
+			[
+				"mh",
+				"mhwezemail"
+			],
+			[
+				"parent_e",
+				"parent_email2"
+			],
+			[
+				"paren",
+				"parent_email2"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
+				"tea",
+				"teacherlist"
+			],
+			[
+				"profile",
+				"profile_columns"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"parent_emai",
+				"parent_email2"
+			],
+			[
+				"pare",
+				"parent_email2"
+			],
+			[
+				"em",
+				"empty"
+			],
+			[
+				"fru",
+				"fruitstack"
+			],
+			[
+				"assi",
+				"assignmentname"
+			],
+			[
+				"subject",
+				"subjectatts"
+			],
+			[
+				"fam",
+				"familyname"
+			],
+			[
+				"comp",
+				"company_name"
+			],
+			[
+				"username",
+				"username_array"
+			],
+			[
+				"cat",
+				"category_id"
+			],
+			[
+				"category",
+				"category_id"
+			],
+			[
+				"common",
+				"common_home"
+			],
+			[
+				"menu",
+				"menufields"
+			],
+			[
+				"_co",
+				"_common_home"
+			],
+			[
+				"project",
+				"project_name"
+			],
+			[
+				"total",
+				"totaltime"
+			],
+			[
+				"cutomer",
+				"customer_id"
+			],
+			[
+				"customer",
+				"customer_id"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"meta",
+				"metadesc"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"it",
+				"item"
+			],
+			[
+				"table",
+				"table_id"
+			],
+			[
+				"other",
+				"other_feature"
+			],
+			[
+				"cate",
+				"category_name"
+			],
+			[
+				"defaul",
+				"default_temp"
+			],
+			[
+				"sub",
+				"subscribers"
+			],
+			[
+				"temp",
+				"template_home"
+			],
+			[
+				"dir",
+				"dir_info"
+			],
+			[
+				"te",
+				"templates"
+			],
+			[
+				"tem",
+				"template"
+			],
+			[
+				"def",
+				"defaultview"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"send",
+				"sendemail"
+			],
+			[
+				"la",
+				"label"
+			],
+			[
+				"com",
+				"company"
+			],
+			[
+				"test",
+				"test_email"
+			],
+			[
+				"twee",
+				"tweetcss"
+			],
+			[
+				"Print",
+				"print_r"
+			],
+			[
+				"order",
+				"orderby"
+			],
+			[
+				"pub",
+				"public"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"categry",
+				"category_id"
+			],
+			[
+				"categ",
+				"category_id"
+			],
+			[
+				"class",
+				"classname"
+			],
+			[
+				"retu",
+				"retuened_id"
+			],
+			[
+				"retur",
+				"returned_id"
+			],
+			[
+				"M",
+				"MMenus"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"en",
+				"english"
+			],
+			[
+				"cat_",
+				"cat_menu_array"
+			],
+			[
+				"lang",
+				"lang_id"
+			],
+			[
+				"tange",
+				"tangen_email"
+			],
+			[
+				"imp",
+				"import_contact"
+			],
+			[
+				"impo",
+				"importer_address"
+			],
+			[
+				"Import",
+				"Importer"
+			],
+			[
+				"shi",
+				"shipperaddress"
+			],
+			[
+				"tangen",
+				"tangen_email"
+			],
+			[
+				"tan",
+				"tangen_name"
+			],
+			[
+				"im",
+				"importer_email"
+			],
+			[
+				"reci",
+				"recipient2"
+			],
+			[
+				"E",
+				"E-Mail"
+			],
+			[
+				"importer",
+				"importer_email"
+			],
+			[
+				"sipper",
+				"shipper"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/modules/welcome/controllers/teacher.php",
+			"settings":
+			{
+				"buffer_size": 16987,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php //views/teacher/changepw\n\n	$this->load->view('student/topmenu');\n\n	print displayStatus();\n	$formatts = array('class'=>'validate','id' => 'myform2', 'data-transition'=>'flip','data-ajax'=>'false');\n	echo form_open('welcome/teacher/changepw',$formatts).\"\\n\";\n	\n	echo '<div data-role=\"fieldcontain\">'.\"\\n\";\n	echo '<label for=\"password\">password: </label>'.\"\\n\";\n	$assignmentnameatts= array(\n		'id'=>'assignmentname',\n		'class'=>'required',\n		'name'=>'assignmentname',\n		'placeholder'=>'Assignment name'\n		);\n	echo form_input($assignmentnameatts).\"\\n\";\n	echo \"</div>\\n\\n\";\n	\n	<li>\n                <?php print form_label($this->lang->line('userlib_password'),'password')?>\n                <?php print form_password('password',set_value('email',$this->form_validation->password),'id=\"password\" class=\"text\"')?>\n            </li>\n            <li>\n                <?php print form_label($this->lang->line('userlib_confirm_password'),'confirm_password')?>\n                <?php print form_password('confirm_password',set_value('email',$this->form_validation->password),'id=\"confirm_password\" class=\"text\"')?>\n            </li>\n\n	echo '<div data-role=\"fieldcontain\">'.\"\\n\";\n	echo '<label for=\"assignmentname\">password: </label>'.\"\\n\";\n	$assignmentnameatts= array(\n		'id'=>'assignmentname',\n		'class'=>'required',\n		'name'=>'assignmentname',\n		'placeholder'=>'Assignment name'\n		);\n	echo form_input($assignmentnameatts).\"\\n\";\n	echo \"</div>\\n\\n\";\n\n	//hidden form for first and last name\n	$data = array(\n              'id'  => $this->session->userdata('id'),\n            );\n\n	echo form_hidden($data);\n\n	echo form_submit('submit', 'Submit', 'data-icon=\"gear\" data-mini=\"true\" id=\"submit\"').\"\\n\";\n	echo form_close();\n	?>\n	\n	<script>\n\n	$(\"#myform2\").validate();\n\n	</script>",
+			"file": "application/modules/welcome/views/teacher/changepw.php",
+			"file_size": 1222,
+			"file_write_time": 1350957335000000,
+			"settings":
+			{
+				"buffer_size": 1763,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/teacher/addstudentrecord.php",
+			"settings":
+			{
+				"buffer_size": 1641,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/teacher/home.php",
+			"settings":
+			{
+				"buffer_size": 4489,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/teacher/allstudents.php",
+			"settings":
+			{
+				"buffer_size": 4724,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/models/mhomework.php",
+			"settings":
+			{
+				"buffer_size": 5969,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/teacher/topmenu.php",
+			"settings":
+			{
+				"buffer_size": 1083,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/controllers/student.php",
+			"settings":
+			{
+				"buffer_size": 23670,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/schools/models/mschools.php",
+			"settings":
+			{
+				"buffer_size": 608,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/kaimonokago/models/mkaimonokago.php",
+			"settings":
+			{
+				"buffer_size": 12040,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/libraries/homeworklib.php",
+			"settings":
+			{
+				"buffer_size": 1700,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/student/myhomework.php",
+			"settings":
+			{
+				"buffer_size": 4431,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/modules/welcome/views/teacher/homework_bystudent.php",
+			"settings":
+			{
+				"buffer_size": 3816,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"if",
+				"Snippet: if … else …"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 355.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/changepw.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/students/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/topmenu.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/models/mhomework.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/home.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/homework_bystudent.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/controllers/teacher.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/allstudents.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/mailto.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/controllers/student.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/myhomework.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/homework.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/topmenu.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/views/public/header.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/homework/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/homework/views/admin/homework_bystudent.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/homework/views/admin/homework_index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/teachers/views/admin/homework_index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/subjects/views/admin/homework_index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/views/public/content.php",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/css/mobilestyle.css",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/setting.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/setting.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/teacher/index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/test/index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/controllers/test.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/test.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/public/form_login.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/controllers/auth.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/students/views/admin/homework_index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/models/user_model.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/teachers/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/schools/models/mschools.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/subjects/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/subjects/views/admin/homework_create.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/schools/views/admin/homework_index.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/products/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/views/admin/header.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/homework/models/mhomework.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/config/userlib.php",
+		"/Applications/MAMP/htdocs/hwezemail2/system/helpers/form_helper.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/libraries/Auth_form_processing.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/admin/access_control/home.php",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/css/notification_iOS.min.css",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/site/config/bep_assets.php",
+		"/Users/teacher/Library/Application Support/Sublime Text 2/Packages/Alignment/Base File.sublime-settings",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/menus/models/mmenus.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/products/models/mproducts.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/public/form_register.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/controllers/admin/members.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/libraries/MY_Form_validation.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/kaimonokago/models/mkaimonokago.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/models/mhwezemail.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/public/form_forgotten_password.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/admin/members/form_member.php",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/css/style.css",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/libraries/Userlib.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/core/Public_Controller.php",
+		"/Applications/MAMP/htdocs/hwezemail2/system/libraries/Form_validation.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/login.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/views/public/footer.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/_header.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/content.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/header.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/controllers/welcome.php",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/js/jquery-1.8.2.min.js",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/css/jquery.mobile-1.2.0.min.css",
+		"/Applications/MAMP/htdocs/hwezemail2/html/chrome.html",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/js/jquery.validate.min.js",
+		"/Applications/MAMP/htdocs/hwezemail2/assets/js/jquery.mobile-1.2.0.min.js",
+		"/Applications/MAMP/htdocs/hwezemail2/application/controllers/admin/settings.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/config/routes.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/kaimonokago/config/field.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/customer/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/helpers/mytools_helper.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/slideshow/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views/admin/members/view.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/welcome/views/student/container.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/modules/category/controllers/admin.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/views/admin/kkmenu.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/language/english/shop_lang.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/core/Admin_Controller.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/core/MY_Controller.php",
+		"/Applications/MAMP/htdocs/hwezemail2/application/config/config.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/views/google/index.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/views/google/google2.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/controllers/googlechrome.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/views/header.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/views/footer.php",
+		"/Users/teacher/Downloads/test.html",
+		"/Applications/MAMP/htdocs/hwezemail/application/config/database.php",
+		"/Applications/MAMP/htdocs/hwezemail/application/config/config.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/content.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/readytogo.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/footer.php",
+		"/Applications/MAMP/htdocs/homeworknow/assets/css/style.css",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/header.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/homeworknow.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/container.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/config/constants.php",
+		"/Users/teacher/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/homeworknow/application/config/msemail.php",
+		"/Applications/MAMP/htdocs/homeworknow/application/views/test.php",
+		"/Users/teacher/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/homeworknow/application/controllers/welcome.php",
+		"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform/changelog.txt",
+		"/Applications/MAMP/htdocs/cecilieo/application/views/public/topnav.php",
+		"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform/includes/config.options.php",
+		"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform/template.postloop.php",
+		"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform/language/de_DE.po",
+		"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform/includes/library.templates.php",
+		"/Applications/MAMP/htdocs/cecilieokada_july_1/application/libraries/MY_Form_validation.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/assets/css/cecilie.css",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/views/public/header.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/config/config.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/welcome/controllers/welcome.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/welcome/views/public/category.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/core/Public_Controller.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/menus/models/mmenus.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/kaimonokago/models/mkaimonokago.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/kaimonokago/controllers/admin.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/products/views/manage/admin_home_cont.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/category/views/admin/admin_home_cont.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/category/views/admin/admin_cat_home.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/views/public/topnav.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/application/modules/category/models/mcats.php",
+		"/Applications/MAMP/htdocs/cecilieokada_may_9/assets/css/forms.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth/views",
+			"/Applications/MAMP/htdocs/hwezemail2/application/modules/auth",
+			"/Applications/MAMP/htdocs/hwezemail2/",
+			"/Applications/MAMP/htdocs/hwezemail2/application",
+			"/Applications/MAMP/htdocs/hwezemail2",
+			"/Applications/MAMP/htdocs/hwezemail2/system",
+			"/Applications/MAMP/htdocs/hwezemail2",
+			"/Applications/MAMP/htdocs/hwezemail",
+			"/Applications/MAMP/htdocs/homeworknow/",
+			"/Applications/MAMP/htdocs/homeworknow/application",
+			"/Applications/MAMP/htdocs/cecilieo_blog/wp-content/themes/platform",
+			"/Applications/MAMP/htdocs/cecilieo_blog",
+			"/Applications/MAMP/htdocs/cecilieo/application",
+			"/Applications/MAMP/htdocs/cecilieokada_july_1",
+			"/Applications/MAMP/htdocs/ci210bm1/",
+			"/Applications/MAMP/htdocs/ci210bm1/assets",
+			"/Applications/MAMP/htdocs/ci210bm1/",
+			"/Applications/MAMP/htdocs/ci210bm1/application/modules",
+			"/Applications/MAMP/htdocs/ci210bm1/",
+			"/Applications/MAMP/htdocs/ci210bm1/application/modules/",
+			"/Applications/MAMP/htdocs/ci210bm1/application/modules/support",
+			"/Applications/MAMP/htdocs/ci210bm1/",
+			"/Applications/MAMP/htdocs/ci210bm1/system/",
+			"/Applications/MAMP/htdocs/ci210bm1/system/libraries",
+			"/Applications/MAMP/htdocs/ci210bm1"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"redirect",
+			"date",
+			"assignmentname",
+			"add_blank_option",
+			"row",
+			"subjectid",
+			"assignmentname",
+			"hwtotal",
+			"MH",
+			"students",
+			"subject",
+			"subjects",
+			"user_model",
+			"hwtotal",
+			"advisory",
+			"segment",
+			"student",
+			"hi",
+			"url(images/",
+			"image/",
+			"mobile",
+			"chart",
+			"You must use your school email address.",
+			"user_id",
+			"add_blank_option",
+			"user_id",
+			"this",
+			"_get_profile_details",
+			"user_profiles",
+			"_register",
+			"=$",
+			"     =$",
+			"email",
+			"username",
+			"user_modelCI->",
+			"user_model",
+			"add_blank",
+			"email",
+			"Email",
+			"email",
+			"Email",
+			"email",
+			"Email",
+			"email",
+			"first_name",
+			"email",
+			"Email",
+			"email",
+			"Q",
+			"MHwezemail",
+			"mhwezemail",
+			"->mhwezemail",
+			"teachername",
+			"teacher",
+			"input",
+			"post",
+			"subject",
+			"insert",
+			"MOBILE",
+			"gravatar",
+			"_get_profile_details",
+			"_get_user_details",
+			"_pull_profile_details",
+			"->fetch",
+			"last_name",
+			"first_name",
+			"active",
+			"group",
+			"email",
+			"username",
+			"_set_profile_defaults",
+			"_get_user_details",
+			"_pull_profile_details",
+			"advisor",
+			"session->set_userdata",
+			"session",
+			"teacher",
+			"callback",
+			"Hi application/views/public/index.php",
+			"spare_username",
+			"callback_spare_username",
+			"return",
+			"register",
+			"bep_generate_password",
+			"GENERATE_PASSWORD",
+			"typography",
+			"location",
+			"submit",
+			"_container",
+			"bep_assets",
+			"MOBILE",
+			"jquery",
+			"FlashStatus",
+			"status_box",
+			"_container",
+			"assignmentnameatts",
+			"organization",
+			"session",
+			"foreach",
+			"getAllSimple",
+			"userlib_profile_fields",
+			"form_member",
+			"set_default_value",
+			"_get_profile_details",
+			"userlib_profile_fields",
+			"getU",
+			"getUsers",
+			"userlib_profile_fields",
+			"$profile_fields_array",
+			"profile_columns",
+			"post",
+			"post_code",
+			"profiles.post_code",
+			"company_name",
+			"common_home",
+			"shop_lang",
+			"lang",
+			"Do you want display in the side menu?",
+			"subscribers",
+			"sound good",
+			"database",
+			"select teacher",
+			"select",
+			"the",
+			"The",
+			"define",
+			"'version' 	=> 'pro',",
+			"pro"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Mh",
+			"url(../images/mobilecustome/",
+			"common_home",
+			"do_hash",
+			"500",
+			"1000",
+			"get_where",
+			"'messages/",
+			"'message/admin/",
+			"<td",
+			"td>",
+			"td",
+			"tr",
+			"$this->module;",
+			"$this->module.'/",
+			"$this->module.'",
+			"$this->module;",
+			"$this->module",
+			"$this->module.'",
+			"admin",
+			"$this->module.'",
+			"admin",
+			"form_validation",
+			"subscribers/",
+			"$this->",
+			"model",
+			"->form_validation->",
+			"",
+			"model",
+			"\"\\n</td>",
+			"</td>\\n</tr>",
+			"</label>\\n</td>",
+			"'label'>\\n<label",
+			"<tr>\\n<td",
+			"<td>\\n",
+			"$lang",
+			"\\r\\n\\n",
+			"//'size'        =>",
+			"'value'       => set_value('shipper'),"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 12,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/modules/welcome/controllers/teacher.php",
+					"settings":
+					{
+						"buffer_size": 16987,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2390,
+								2398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1105.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/modules/welcome/views/teacher/changepw.php",
+					"settings":
+					{
+						"buffer_size": 1763,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								695,
+								695
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/modules/welcome/views/teacher/addstudentrecord.php",
+					"settings":
+					{
+						"buffer_size": 1641,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								603,
+								603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/modules/welcome/views/teacher/home.php",
+					"settings":
+					{
+						"buffer_size": 4489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								745,
+								745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 85.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/modules/welcome/views/teacher/allstudents.php",
+					"settings":
+					{
+						"buffer_size": 4724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4445,
+								4397
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2337.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/modules/welcome/models/mhomework.php",
+					"settings":
+					{
+						"buffer_size": 5969,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5838,
+								5857
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3489.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/modules/welcome/views/teacher/topmenu.php",
+					"settings":
+					{
+						"buffer_size": 1083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								975,
+								975
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 40.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/modules/welcome/controllers/student.php",
+					"settings":
+					{
+						"buffer_size": 23670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10307,
+								10315
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4182.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/modules/schools/models/mschools.php",
+					"settings":
+					{
+						"buffer_size": 608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/modules/kaimonokago/models/mkaimonokago.php",
+					"settings":
+					{
+						"buffer_size": 12040,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2701.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/modules/welcome/libraries/homeworklib.php",
+					"settings":
+					{
+						"buffer_size": 1700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1689,
+								1689
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 513.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "application/modules/welcome/views/student/myhomework.php",
+					"settings":
+					{
+						"buffer_size": 4431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1249,
+								1440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 662.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "application/modules/welcome/views/teacher/homework_bystudent.php",
+					"settings":
+					{
+						"buffer_size": 3816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1230,
+								1438
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"cont",
+				"application/controllers/multipleupload.php"
+			],
+			[
+				"view",
+				"application/views/upload_success.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true
+}

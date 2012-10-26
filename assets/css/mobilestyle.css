@@ -1,0 +1,48 @@
+label.ui-input-text.error, .ui-field-contain label.error{
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-top: 0.5em;
+    width: 100%;
+    float: none;
+}
+
+@media screen and (orientation: portrait){
+    label.ui-input-text.error , .ui-field-contain label.error{ margin-left: 0; display: block; }
+}
+
+@media screen and (orientation: landscape){
+    label.ui-input-text.error, .ui-field-contain label.error{ display: inline-block; margin-left: 22%; }
+}
+
+em { color: red; font-weight: bold; padding-right: .25em; }
+
+
+/*
+General
+*/
+.ui-body-c {
+  background-color:#FFFFFF;
+  background-image:url(../images/background.jpeg);
+  background-position:50% 0;
+  background-repeat:repeat repeat;
+}
+
+.ui-submit, #submit{
+  width: 250px;
+  margin: auto;
+}
+
+#avatar{
+  margin-top: -40px;
+
+}
+
+#logout {
+    float: right;
+    height: 40px;
+    margin-top: -40px;
+    width: 90px;
+}
+
