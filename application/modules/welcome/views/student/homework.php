@@ -44,6 +44,18 @@
 	</script>
 <?php
 /*
+$item=$this->preference->item('cachepagetime');
+var_dump($item);
+if(empty($item))
+{
+	echo "yes";
+}
+else
+{
+	echo "no";
+}
+
+
 echo "session info: ";
 	print_r($this->session->all_userdata()) ;
 	echo "<br />";

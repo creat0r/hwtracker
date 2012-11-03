@@ -89,10 +89,6 @@ $config['asset'][] = array('file'=>'calendar.css');
 $config['asset'][] = array('file'=>'calendar_init.js', 'needs'=>'jquery');
 $config['asset'][] = array('file'=>'site.js', 'needs'=>'jquery');
 
-// datepicker 
-$config['asset'][] = array('file'=>'jquery.datepick.css');
-$config['asset'][] = array('file'=>'jquery.datepick.pack.js', 'needs'=>'jquery');
-$config['asset'][] = array('file'=>'datepicker_init.js', 'needs'=>'jquery.datepick.pack');// date picker init and delete warning
 
 // Back-end dataTables js
 $config['asset'][] = array('file'=>'jquery.dataTables.min.js', 'needs'=>'jquery');
@@ -158,6 +154,7 @@ $config['asset'][] = array('file'=>'zoomer.js', 'needs'=>'jquery');
 //twitter
 $config['asset'][] = array('file'=>'jquery.tweetcss.css');
 $config['asset'][] = array('file'=>'jquery.tweet.js', 'needs'=>'jquery');
+
 
 // datepicker
 $config['asset'][] = array('file'=>'jquery.datepick.css');

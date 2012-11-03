@@ -177,6 +177,11 @@ class Members extends Admin_Controller
                                     'label'=>$this->lang->line('userlib_password'),
                                     'rules'=>"trim|required|min_length[".$this->preference->item('min_password_length')."]|matches[confirm_password]"
                                     );
+                    $config[] = array(
+                                    'field'=>'confirm_password',
+                                    'label'=>$this->lang->line('userlib_confirm_password'),
+                                    'rules'=>"trim|required"
+                                    );
 
 		}
 		else
@@ -194,7 +199,27 @@ class Members extends Admin_Controller
                     $config[] = array(
                                     'field'=>'password',
                                     'label'=>$this->lang->line('userlib_password'),
-                                    'rules'=>"trim|required|min_length[".$this->preference->item('min_password_length')."]|matches[confirm_password]"
+                                    'rules'=>"trim|min_length[".$this->preference->item('min_password_length')."]|matches[confirm_password]"
+                                    );
+                    $config[] = array(
+                                    'field'=>'confirm_password',
+                                    'label'=>$this->lang->line('userlib_confirm_password'),
+                                    'rules'=>"trim"
+                                    );
+                    $config[] = array(
+                                    'field'=>'active',
+                                    'label'=>$this->lang->line('userlib_active'),
+                                    'rules'=>"trim"
+                                    );
+                    $config[] = array(
+                                    'field'=>'gender',
+                                    'label'=>'Gender',
+                                    'rules'=>"trim"
+                                    );
+                    $config[] = array(
+                                    'field'=>'role',
+                                    'label'=>'Role',
+                                    'rules'=>"trim"
                                     );
 			// Use edit user rules (make sure no-one other than the current user has the same email)
 		}

@@ -2,17 +2,20 @@
 
 class Student extends Public_Controller 
 {
+    private $configcachetime;
 
     public function __construct()
     {
         parent::__construct();
-        //check('Student');
+        check('Students');
         $this->load->helper('form');
         $this->load->helper('url');
+        $this->load->library('Hwtracker');
         $this->load->library('form_validation');
         $this->load->model('auth/user_model');
         $this->load->model('kaimonokago/MKaimonokago');
         $this->load->model('Mhomework');
+        $this->configcachetime=$this->config->item('cachetime');
     }
 
 
@@ -31,7 +34,8 @@ class Student extends Public_Controller
                 $prefix='hw_';
                 $criteria="name";
                 $order="asc";
-                $subjects = $this->MKaimonokago->getAllSimple($module, $where = NULL, $what = NULL,$prefix, $criteria, $order);
+                $status='active';
+                $subjects = $this->MKaimonokago->getAllSimple($module, $where = NULL, $what = NULL,$prefix, $criteria, $order, $status);
                 
                 foreach ($subjects as $row)
                 {
@@ -85,110 +89,69 @@ class Student extends Public_Controller
         $id             =$this->input->post('id');
         $data['subjectid'] = $subjectid =$this->input->post('subjectid');//subject id
         $teachernameid    =$this->input->post('teachername');//teacher id
-        //$advisorname  =$this->input->post('advisorname');
         $assignmentname =$this->input->post('assignmentname');
-        //$teachernames is an array, let's implode it to string
-        //$data['arrayteachers']=$teachernames;
-        // find advisory's email
-        //$user=$this->user_model->getUsers(array('users.id'=>$id));
-        //$data['advisor']=$user['advisor'];
         
         if($id AND $subjectid AND $assignmentname AND $teachernameid)
         {
-            // get user details from id
-            $user=$this->user_model->getUsers(array('users.id'=>$id));
-            $userdetails= $user->row_array();
-            //$data['userdetails']=$userdetails;
+            // get user details from session
+            $userdetails=$this->session->all_userdata();
             $data['userdetails']=$userdetails;
             $data['first_name'] = $first_name = $userdetails['first_name'];
             $data['last_name'] = $last_name= $userdetails['last_name'];
-            /*
-            $data['studentid'] = $id;
-            $data['first_name'] = $first_name = $userdetails['first_name'];
-            $data['last_name'] = $last_name= $userdetails['last_name'];
-            $data['parent_email1'] = $parent_email1 = $userdetails['parent_email1'];
-            $data['parent_email2'] = $parent_email2 = $userdetails['parent_email2'];
-            */
-            // find advisor name
-            //$data['advisor'] = $userdetails['advisor'];
-            $module='user_profiles';
-            $where='user_id';
-            $what = $userdetails['advisor'];
-            $prefix = 'be_';
-            $advisor=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            $data['advisor'] = $advisor['last_name'];
-
+            
+            // get advisor details
+            $advisor=$userdetails['advisor'];//advisorid
+            $advisor=$this->user_model->getUsers(array('users.id'=>$advisor));
+            $data['advisordetails']= $advisordetails=$advisor->row_array();
+            
             // advisor gender for Mr or Ms.
-            if($advisor['gender']=='male')
-            {
-                $data['advisor_gender']='Mr.';
-            }
-            else
-            {
-                $data['advisor_gender']='Ms.';
-            }
-            
-            // find subject name from id
-            $module='subjects';
-            $where='id';
-            $what = $subjectid;
-            $prefix = 'hw_';
-            $subjectdetails=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            //getInfo($module, $id, $lang_id=NULL)
-            //$subject = $this->fetch($moudle,'name','',$where);
-            $data['subjectname'] = $subjectname = $subjectdetails['name'];
-            // get subject teacher user details
-            $module='users';
-            $where='id';
-            $what = $teachernameid;
-            $prefix='be_';
-            $data['teacheruserdetails']=$teachername=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            
+            $gender = $advisordetails['gender'];
+            $data['advisor_gender']=$this->hwtracker->get_gender($gender);
 
-            // find subject teacher name from id
-            $module='user_profiles';
-            $where='user_id';
-            $what = $teachernameid;
-            $prefix='be_';
-            $data['teacherprofiledetails']=$teacherprofiledetails=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            //$data['teachername']=$teachername['last_name'];
-            //$data['teacherid']=$teachername['user_id'];
+            // find subject name from id
+            $what = $subjectid;
+            $subjectdetails=$this->hwtracker->get_subject($what);
+            $data['subjectname'] = $subjectname = $subjectdetails['name'];
+
+            // get subject teacher user details
+            //$what = $teachernameid;
+            $teacherdetails=$this->user_model->getUsers(array('users.id'=>$teachernameid));
+            $data['teacherdetails']= $teacherdetails=$teacherdetails->row_array();
 
             // teacher gender
-            if($teacherprofiledetails['gender']=='male')
-            {
-                $data['teacher_gender']='Mr.';
-            }
-            else
-            {
-                $data['teacher_gender']='Ms.';
-            }
+            $gender = $teacherdetails['gender'];
+            $data['teacher_gender']=$this->hwtracker->get_gender($gender);
+
             // find MS principal name
-            // find subject teacher name and genger from id
-            $module='user_profiles';
-            $where='role';
             $what = 'ms_principal';
-            $prefix='be_';
-            $data['principalprofiledetails']=$principalprofiledetails=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            
-            if($principalprofiledetails['gender']=='male')
-            {
-                $data['principal_gender']='Mr.';
-            }
-            else
-            {
-                $data['principal_gender']='Ms.';
-            }
-            // get principal's email from users
-            $module='users';
-            $where='id';
-            $what = $principalprofiledetails['user_id'];
-            $prefix='be_';
-            $data['principaluserdetails']=$principaluserdetails=$this->MKaimonokago->getSimple($module, $where, $what,$prefix);
-            
+            $principalprofiledetails=$this->hwtracker->get_principal($what);
+            $principalid=$principalprofiledetails['user_id'];
+            $principaldetails=$this->user_model->getUsers(array('users.id'=>$principalid));
+            $data['principaldetails']= $principaldetails=$principaldetails->row_array();
+            // find prinpal's genger
+            $gender = $principaldetails['gender'];
+            $data['principal_gender']=$this->hwtracker->get_gender($gender);
 
             // prepare for the content
-            $username=$first_name." ".$last_name;
+            $data['username']=$username=$first_name." ".$last_name;
+            // for link to show student missed homework
+            $encrypted = md5($first_name.$last_name);
+            $link=base_url()."index.php/welcome/getpage/".$encrypted;
+
+            // get time from preference or config
+            if($this->preference->item('cachepagetime')>0)
+            {
+                $cachetime=$this->preference->item('cachepagetime');
+            }
+            else
+            {
+                $cachetime=$this->configcachetime;
+            }
+            $time = $cachetime/60;
+            // get the site name
+            $site_name = $this->preference->item('site_name');
+            $company_name = $this->preference->item('company_name');
+
 
             $content = <<<EOD
 <p>Dear parent,</p>
@@ -197,17 +160,15 @@ class Student extends Public_Controller
 completed and handed in by the next class meeting.</p>
 
 <p>Please 'Reply All' to confirm that you have read and understand this email.</p>
-
+<p><a href="$link" target="_blank">See more details.</a> This link is avaiable for $time minutes.</p>
 <p>Thank you<br />
 $username</p>
+
+<p style="font-size:x-small; color:grey;">This email was intended for the parents of $username and sent from $company_name $site_name.</p> 
 EOD;
 
-            //$data['teachers']=$teachernames;
-            //$data['advisorname']=$advisorname;
             $data['assignmentname']=$assignmentname;
             $data['content']=$content;
-            //$data['content_email']=$content_email;    
-            //$data['msprincipal']="jschatzky@canacad.ac.jp";
             $data['page']="student/mailto";
             $this->load->view($this->_container, $data);
         }
@@ -221,18 +182,16 @@ EOD;
 
     function sendemail()// also insert studentid, assignment_name, teacherid, date to db hw_homework
     {
-        $studentid = $this->input->post('studentid');
-        $subjectid = $this->input->post('subjectid');
+        //$to = $this->input->post('to');
+        //$cc = $this->input->post('cc');
+        $email_subject = $this->input->post('email_subject');
+        $content = $this->input->post('content');
         $assignmentname = $this->input->post('assignmentname');
-        $teacherid = $this->input->post('teacherid');
-        /*
-
-        'to'  => "$parent_email1, $parent_email2",
-        'cc' => "$teachername, $msprincipal",
-        'subject'   => "$subject homework",
-        'content'=>$content
-        */
-
+        $subjectid = $this->input->post('subjectid');
+        $studentid = $this->input->post('studentid');
+        $subject_teacherid = $this->input->post('subject_teacherid');
+        $username = $this->input->post('username');
+        $useremail = $this->input->post('useremail');
 
         $config[] = array(
                             'field'=>'to',
@@ -245,7 +204,7 @@ EOD;
                             'rules'=>"trim|required"
                             );
         $config[] = array(
-                            'field'=>'subjectname',
+                            'field'=>'email_subject',
                             'label'=>'Subject',
                             'rules'=>"trim|required"
                             );
@@ -260,31 +219,27 @@ EOD;
         {
             // if any validation errors, display them
             $this->form_validation->output_errors();
-            //$captcha_result = '';
-            //$data['cap_img'] = $this->_generate_captcha();
-            //$data['title'] = $this->preference->item('site_name').": ". lang('webshop_message_contact_us');
-            //$data['page']="student/mailto";
-            //$this->load->view($this->_container, $data);
             redirect('welcome/student/mailto','refresh');
         }
         else
         {
-            /* not at the moment
+            // not at the moment
             // validation has passed. Now send the email
-            $name = $this->input->post('name');
-            $email = $this->input->post('email');
-            $message = $this->input->post('message');
-            // get email from preferences/settings
-            $myemail = $this->preference->item('admin_email');
             $this->load->library('email');
-            $this->email->from($email.$name);
-            $this->email->to($parentemail1);// Send to parents, subject, advisory teacher and principal
-            $this->email->subject(sprintf(lang('webshop_message_subject'),$this->preference->item('site_name')));
-            $this->email->message(lang('webshop_message_sender').
-            $name."\r\n".lang('webshop_message_sender_email').": ".
-            $email. "\r\n".lang('webshop_message_message').": " . $message);
+            $config['mailtype'] = 'html';
+            $this->email->initialize($config); 
+            $this->email->from($useremail,$username);
+            $cc=$to='okada.shin@gmail.com,sokada@canacad.ac.jp';
+            $this->email->to($to);// Send to parents, subject, advisory teacher and principal
+            $this->email->cc($cc);
+            //$reply_to=array($useremail,$cc,$to);
+            //$this->email->reply_to($reply_to);
+            $this->email->subject($email_subject);
+            // decode the content htmlspecialchars
+            //$content = htmlspecialchars_decode($content);
+            $this->email->message($content);
             $this->email->send();
-            */
+            
 
             // save it in DB 
             $table='homework';
@@ -292,7 +247,7 @@ EOD;
                'studentid' => $studentid ,
                'subjectid' => $subjectid,
                'assignment_name' => $assignmentname ,
-               'teacherid' => $teacherid ,
+               'teacherid' => $subject_teacherid ,
                //'date' => ''
             );
             $prefix = 'hw_';
@@ -488,6 +443,16 @@ EOD;
     public function myhomework()
     {
         $id=$this->uri->segment(4);
+        // encript first and last_name
+        $user=$this->user_model->getUsers(array('users.id'=>$id));
+        $userdetails= $user->row_array();
+        //$data['userdetails']=$userdetails;
+        $data['userdetails']=$userdetails;
+        $data['first_name'] = $first_name = $userdetails['first_name'];
+        $data['last_name'] = $last_name= $userdetails['last_name'];
+        
+        $encrypted = md5($first_name.$last_name);
+
         // find subject teacher name and genger from id
         if($id==$this->session->userdata('id'))
         {
@@ -513,7 +478,33 @@ EOD;
             $data['title']="My Missed Homework";
             $data['header']=$this->preference->item('site_name');
             $data['fttitle']=$this->preference->item('company_name');
+            // save it to cache  
+            $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+            $data['encrypted']=$encrypted;
+            $cachedpage = $data;
+            // get time from preference
+            /*
+            $this->preference->item('cachepagetime');
+            // Save into the cache for 5 minutes
+            $this->cache->save($encrypted, $cachedpage, 300);
+            */
+            // get time from preference
+             
+            if($this->preference->item('cachepagetime')>0)
+            {
+                $cachetime=$this->preference->item('cachepagetime');
+            }
+            else
+            {
+                $cachetime=$this->configcachetime;
+            }
+
+                
+            // Save into the cache for 5 minutes
+            $this->cache->save($encrypted, $cachedpage, $cachetime);
+
             $data['page']="student/myhomework";
+
             $this->load->view($this->_container, $data);
         }
         else
@@ -666,6 +657,9 @@ EOD;
         $hwtotal=$this->Mhomework->get_total($id);
         return $hwtotal;
     }
+
+
+    
 
 
 

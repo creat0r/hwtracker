@@ -84,14 +84,15 @@ class Mhomework extends CI_Model
             $Q = "SELECT studentID, DATE_FORMAT(`date`, $dateformat) $key,COUNT(studentID) totalMissed
             FROM hw_homework
             WHERE studentID = $id
-            GROUP BY studentID, DATE_FORMAT(`date`, $dateformat)";
-
+            GROUP BY studentID, DATE_FORMAT(`date`, $dateformat)
+            ORDER BY Month(date)";
         }
         else
         {
             $Q="SELECT  studentID, DATE_FORMAT(`date`, $dateformat) $key, COUNT(studentID) totalMissed
             FROM hw_homework
-            GROUP BY studentID, DATE_FORMAT(`date`, $dateformat)";
+            GROUP BY studentID, DATE_FORMAT(`date`, $dateformat)
+            ORDER BY Month(date)";
         }
         $query = $this->db->query($Q);
                                     

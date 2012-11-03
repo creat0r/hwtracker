@@ -19,7 +19,7 @@ class MKaimonokago extends Base_model
      * @return <type>
      */
 
-    function getAllSimple($module, $where = NULL, $what = NULL,$prefix=NULL,$criteria=NULL,$order=NULL)
+    function getAllSimple($module, $where = NULL, $what = NULL,$prefix=NULL,$criteria=NULL,$order=NULL, $status=NULL)
     {
         $data = array();
         if(empty($prefix))
@@ -33,10 +33,16 @@ class MKaimonokago extends Base_model
         if(!empty($where)){
             $this->db->where($where,$what);
         }
+        if(!empty($status))
+        {
+            $this->db->where('status',$status);
+        }
         if(!empty($order))
         {
             $this->db->order_by($criteria,$order);
         }
+
+
         $Q = $this->db->get($table);
         if ($Q->num_rows() > 0){
         foreach ($Q->result_array() as $row){
@@ -170,9 +176,17 @@ class MKaimonokago extends Base_model
 
 
 
-    function addItem($module,$data,$return_id=FALSE)
+    function addItem($module,$data,$return_id=FALSE,$prefix=NULL)
     {
-        $module_table = 'omc_'.$module;
+        if(empty($prefix))
+        {
+            $module_table = 'omc_'.$module;
+        }
+        else
+        {
+            $module_table = $prefix.$module;
+        }
+
         if($module=='email'){
             $this->db->set('date', 'NOW()', FALSE);
         }
@@ -212,7 +226,15 @@ class MKaimonokago extends Base_model
 
     function updateItem($module,$data)
     {
-        $module_table = 'omc_'.$module;
+        if($module=='subjects')
+        {
+            $module_table = 'hw_'.$module;
+        }
+        else
+        {
+            $module_table = 'omc_'.$module;
+        }
+        
         if($module =='customer')
         {// omc_cutomer has customer_id
             $idname = 'customer_id';
@@ -274,11 +296,19 @@ class MKaimonokago extends Base_model
 
     function changeStatus($module, $id)
     {
+        if($module=='subjects')
+        {
+            $table='hw_'.$module;
+        }
+        else
+        {
+            $table='omc_'.$module;
+        }
         // getting status of page
         $tableinfo = array();
         // since the following uses getInfo which add omc_, here I use module
         $tableinfo = $this->getInfo($module,$id);
-        $table='omc_'.$module;
+        
         $status = $tableinfo['status'];
         if($status =='active')
         {
@@ -329,7 +359,15 @@ class MKaimonokago extends Base_model
     function getInfo($module, $id, $lang_id=NULL)
     {
         $data = array();
-        $table = "omc_".$module;
+        if($module=='subjects')
+        {
+            $table='hw_'.$module;
+        }
+        else
+        {
+            $table='omc_'.$module;
+        }
+        
         if($module=='customer')
         {
             $where = 'customer_id';

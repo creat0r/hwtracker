@@ -1,4 +1,5 @@
 <?php //mailto.php
+
 $this->load->view('student/topmenu');
 $formatts = array('data-ajax'=>'false');
 echo form_open('welcome/student/sendemail',$formatts)."\n";
@@ -10,25 +11,43 @@ else
 {
 	$parent_email2="";
 }
-echo "To: ".$userdetails['parent_email1'].$parent_email2."<br />";
+echo "To: ".$userdetails['parent_email1'].$parent_email2."<br />\n";
+// find to who you are sending from preference
+$email_to=$this->preference->item('email_to');
+$findsubject   = 'subject';
+$findadvisor ='advisor';
+$findprincipal ='principal';
+$subjectpos = strpos($email_to, $findsubject);
+$advisorpos = strpos($email_to, $findadvisor);
+$principalpos = strpos($email_to, $findprincipal);
+if($subjectpos !== false)
+{
+	echo "cc to subject teacher: $teacher_gender ". $teacherdetails['last_name']."<br />\n";
+}
+if($advisorpos !== false)
+{
+	echo "cc to advisor: $advisor_gender"." " .$advisordetails['last_name']."<br />\n";
+}
+if($principalpos !== false)
+{
+	echo "cc to principal: $principal_gender ".$principaldetails['last_name']."<br />\n";
+}
 
-echo "cc to subject teacher: $teacher_gender". $teacherprofiledetails['last_name']."<br />";
-
-echo "cc to advisor: $advisor_gender $advisor<br />";
-echo "cc to principal: $principal_gender".$principalprofiledetails['last_name']."<br />";
-echo "Subject: $subjectname homework<br />";
+echo "Subject: $subjectname homework<br />\n";
 echo $content;
 
 //email
 $data = array(
-              'to'  => $userdetails['parent_email1']. $userdetails['parent_email2'],
-              'cc' => $teacheruserdetails['email'].", ".$principaluserdetails['email'],
-              'subjectname'   => "$subjectname homework",
+              'to'  => $userdetails['parent_email1']. $parent_email2,
+              'cc' => $teacherdetails['email'].", ".$advisordetails['email'].", ".$principaldetails['email'],
+              'email_subject'   => "$subjectname homework",
               'content'=>$content,
               'assignmentname'=>$assignmentname,
               'subjectid'=>$subjectid,
               'studentid'=>$userdetails['id'],
-              'teacherid'=> $teacheruserdetails['id']
+              'subject_teacherid'=> $teacherdetails['id'],
+              'username'=>$username,
+              'useremail'=>$userdetails['email'],
             );
 
 
@@ -39,6 +58,9 @@ echo form_close();
 ?>
 
 <?php
+echo "<pre>session data: ";
+print_r($this->session->all_userdata());
+echo "</pre>";
 
 //print_r($userdetails);
 //echo "<br />";
@@ -50,16 +72,26 @@ echo form_close();
 echo "<pre>userdetails: ";
 print_r($userdetails);
 echo "</pre>";
-
-echo "<pre>teacherprofiledetails: ";
-//print_r($data);
-print_r($teacherprofiledetails);
+echo "<pre>advisordetails: ";
+print_r($advisordetails);
 echo "</pre>";
-var_dump($userdetails['parent_email2']);
-if(empty($userdetails['parent_email2']))
-{
-	echo "empty";
-}
+echo "<pre>teacherdetails: ";
+//print_r($data);
+print_r($teacherdetails);
+echo "</pre>";
+echo "<pre>principaldetails: ";
+//print_r($data);
+print_r($principaldetails);
+echo "</pre>";
+//echo "<pre>advisor: ";
+//print_r($data);
+//print_r($advisor);
+//echo "</pre>";
+//var_dump($userdetails['parent_email2']);
+//if(empty($userdetails['parent_email2']))
+//{
+	//echo "empty";
+//}
 /*
 //var_dump($teachers);
 if($advisorname)

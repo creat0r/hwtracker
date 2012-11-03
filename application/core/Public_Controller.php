@@ -57,6 +57,8 @@ class Public_Controller extends MY_Controller
         $this->load->model('subscribers/MSubscribers');
         $this->load->model('languages/MLangs');
         $this->load->model('slideshow/MSlideshow');
+        // hwtracker
+        $this->load->config('hwtracker');
 
         // Loading libraries instead of autoload
         $this->load->library('form_validation');

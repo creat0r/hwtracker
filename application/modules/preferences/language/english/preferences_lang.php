@@ -196,6 +196,20 @@ $lang["preference_label_customer_registration"]="Customer Registration";
 $lang["preference_desc_customer_registration"]="Customer Registration";
 
 
+// hwtracker
+$lang["preference_label_cachepagetime"]="Cache Page Duration";
+$lang["preference_desc_cachepagetime"]="Enter time in second for cached page can exist before expire. 600sec is 10min, 3600sec is 1 hour.";
+$lang["preference_label_first_semester_start"]="First Date of The First Semester";
+$lang["preference_desc_first_semester_start"]="Pleaes enter date like 2012-10-27";
+$lang["preference_label_first_semester_end"]="Last Date of The First Semester";
+$lang["preference_desc_first_semester_end"]="Pleaes enter date like 2012-10-27";
+$lang["preference_label_second_semester_start"]="First Date of The First Semester";
+$lang["preference_desc_second_semester_start"]="Pleaes enter date like 2012-10-27";
+$lang["preference_label_second_semester_end"]="Last Date of The First Semester";
+$lang["preference_desc_second_semester_end"]="Pleaes enter date like 2012-10-27";
+$lang["preference_label_email_to"]="Which teachers and admin do you want to send email to?";
+$lang["preference_desc_email_to"]="Enter subject,advisor,principal.";
+
 /**
  *     BELOW HERE DEFINE ANY LANGUAGE STRINGS FOR YOUR APPLICATIONS
  *

@@ -1,14 +1,16 @@
 # file named .gitignore
 
-# application/config/database.php
-# application/config/config.php
-application/logs/
+application/config/database.php
+application/config/config.php
 application/cache/
 application/modules/recaptcha/config/recaptcha.php
 sublime/
 system/cache/
+hwezemail2.sublime-project
+hwezemail2.sublime-workspace
 # Vim leave-behinds
 *.swp
+
 
 # Windows files
 *.bak

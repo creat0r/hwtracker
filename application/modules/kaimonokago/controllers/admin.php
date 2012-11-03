@@ -17,7 +17,15 @@ class Admin extends Shop_Admin_Controller
         // the link looks like this, kaimonokago/admin/changeBooleanStatus/$module/".$list['id']."/manage/".$category_id
         parent::__construct();
         $this->module = $this->uri->segment(4);
-        $this->table = "omc_".$this->module;
+        if($this->module =='subjects')
+        {
+            $this->table = "hw_".$this->module;
+        }
+        else
+        {
+            $this->table = "omc_".$this->module;
+        }
+        
         $this->id = $this->uri->segment(5);
         $this->sub_controller = $this->uri->segment(6);
         $this->category_id = $this->uri->segment(7);

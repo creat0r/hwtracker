@@ -60,7 +60,7 @@
     echo "<label for='first_name'>".$this->lang->line('webshop_first_name')."</label>"."\n";
         $first_name= array(
         'id'=>'first_name',
-        //'class'=>'required',
+        'class'=>'required',
         'name'=>'first_name',
         'placeholder'=>'First name',
         'value'=>set_value('first_name'),
@@ -73,7 +73,7 @@
     echo "<label for='last_name'>".$this->lang->line('webshop_last_name')."</label>"."\n";
         $last_name= array(
         'id'=>'last_name',
-        //'class'=>'required',
+        'class'=>'required',
         'name'=>'last_name',
         'placeholder'=>'Last name',
         'value'=>set_value('last_name'),
@@ -86,7 +86,7 @@
     echo "<label for='parent_email1'>Parent Email 1</label>"."\n";
         $parent_email1= array(
         'id'=>'parent_email1',
-        //'class'=>'required',
+        'class'=>'required',
         'name'=>'parent_email1',
         'placeholder'=>'Parent email 1',
         'value'=>set_value('parent_email1'),
@@ -166,7 +166,8 @@ function belongstowork($email){
      $endsWith = "@canacad.ac.jp";
      //see: http://stackoverflow.com/a/619725/568884
      return substr_compare($endsWith, $email, -strlen($email), strlen($email)) === 0;
- }      
+ }  
+/*     
 $email = 'test@caanacad.ac.jp';
 echo $email;
 var_dump(spare_workemail($email));
@@ -178,5 +179,6 @@ else
 {
     echo "true";
 }
-
+*/
+?>
 

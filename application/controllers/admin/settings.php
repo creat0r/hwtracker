@@ -29,6 +29,7 @@ class Settings extends Admin_Controller
 		parent::__construct();
 
 		$this->lang->load('preferences/preferences');
+		$this->bep_assets->load_asset_group('calendar');
 
 		log_message('debug','BackendPro : Settings class loaded');
 	}
@@ -47,8 +48,9 @@ class Settings extends Admin_Controller
                 'security'    => array('name'=> $this->lang->line('preference_page_security_preferences'), 'fields'=>'use_login_captcha,use_registration_captcha,min_password_length'),
                 'email'       => array('name'=> $this->lang->line('preference_page_email_configuration'), 'fields'=>'automated_from_name,automated_from_email,email_protocol,email_mailpath,smtp_host,smtp_user,smtp_pass,smtp_port,smtp_timeout,email_mailtype,email_charset,email_wordwrap,email_wrapchars,bcc_batch_mode,bcc_batch_size'),
                 'maintenance' => array('name'=> $this->lang->line('preference_page_maintenance_debugging_settings'), 'fields'=>'page_debug,keep_error_logs_for'),
-				'modulemanagement'	  => array('name'=> $this->lang->line('preference_module_management'),'fields'=>'calendar,category,customers,filemanager,languages,menus,messages,orders,pages,products,slideshow,subscribers,homework,schools,students,subjects,teachers,teacher_site,student_site'),
+				'modulemanagement'	  => array('name'=> $this->lang->line('preference_module_management'),'fields'=>'calendar,category,customers,filemanager,languages,menus,messages,orders,pages,products,slideshow,subscribers,homework,schools,students,subjects,teachers'),
                 'website'       => array('name'=> $this->lang->line('preference_website_configuration'),'fields'=>'main_module_name,multi_language,frontend_multi_language,website_language,categories_parent_id,playroom_parent_id,admin_email,security_method,security_question,security_answer'),
+				'homeworktracker'     => array('name'=> 'Homework Tracker', 'fields'=>'cachepagetime,first_semester_start,first_semester_end,second_semester_start,second_semester_end, email_to'),  
 				'slideshow'     => array('name'=> $this->lang->line('preference_frontpage_slideshow_settings'), 'fields'=>'webshop_slideshow,slideshow_two'),
 				'analytics'     => array('name'=> $this->lang->line('preference_google_analytics_settings'), 'fields'=>'ga_tracking,ga_profile,ga_email,ga_password'),
                 'rss_feed'     => array('name'=> $this->lang->line('preference_rss_feeds_settings'), 'fields'=>'dashboard_rss,dashboard_rss_count'),
@@ -129,8 +131,15 @@ class Settings extends Admin_Controller
 		$config['field']['students'] = array('type'=>'boolean');
 		$config['field']['subjects'] = array('type'=>'boolean');
 		$config['field']['teachers'] = array('type'=>'boolean');
-		$config['field']['student_site'] = array('type'=>'boolean');
-		$config['field']['teacher_site'] = array('type'=>'boolean');
+		
+		// Homework Tracker
+		$config['field']['cachepagetime'] = array('rules'=>'trim');
+		$config['field']['first_semester_start'] = array('rules'=>'trim');
+		$config['field']['first_semester_end'] = array('rules'=>'trim');
+		$config['field']['second_semester_start'] = array('rules'=>'trim');
+		$config['field']['second_semester_end'] = array('rules'=>'trim');
+		//$config['field']['email_to'] = array('type'=>'checkbox','params'=>array('options'=>array('subjectteacher'=>'Subject Teacher','advisor'=>"Advisor",'principal'=>'Principal')));
+		$config['field']['email_to'] = array('rules'=>'trim');
 
 		// analytics
 		$config['field']['ga_tracking'] = array('rules'=>'trim');

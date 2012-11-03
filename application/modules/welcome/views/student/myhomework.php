@@ -1,4 +1,8 @@
-<?php //views/student/myhomework.php ?>
+<?php //views/student/myhomework.php 
+//print_r($encrypted);
+//echo "cachetime is";
+//print_r($cachetime);
+?>
 <script type="text/javascript">
     
     // Load the Visualization API and the piechart package.

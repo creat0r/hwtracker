@@ -313,9 +313,28 @@ class Preference_form
 		$params = $this->field[$key]['params'];
 		$params['name'] = $key;
 		$params['id'] = $key;
-                $params['type'] = 'password';
+        $params['type'] = 'password';
 		$params['value'] = '';
 		return form_input($params);
+	}
+/*
+*	not working. This will create a form but the model part will insert an object to db
+*/
+	function _field_checkbox($key)
+	{
+		$options = $this->field[$key]['params']['options'];
+		$output='';
+		foreach ($options as $keyvalue=> $value)
+		{
+
+			$data=array(
+				//'name'=>'email_to',
+				'value'=>$keyvalue,
+				);
+			$output .= form_checkbox('email_to[]',$keyvalue).$value;
+
+		}
+		return $output;
 	}
 
 }

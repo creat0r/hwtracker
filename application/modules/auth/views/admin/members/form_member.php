@@ -25,11 +25,11 @@
             </li>
             <li>
                 <?php print form_label($this->lang->line('userlib_password'),'password')?>
-                <?php print form_password('password',set_value('email',$this->form_validation->password),'id="password" class="text"')?>
+                <?php print form_password('password',NULL,'id="password" class="text"')?>
             </li>
             <li>
                 <?php print form_label($this->lang->line('userlib_confirm_password'),'confirm_password')?>
-                <?php print form_password('confirm_password',set_value('email',$this->form_validation->password),'id="confirm_password" class="text"')?>
+                <?php print form_password('confirm_password',NULL,'id="confirm_password" class="text"')?>
             </li>
             <li>
                 <?php print form_label($this->lang->line('userlib_group'),'group')?>
@@ -105,7 +105,7 @@
                 ES Principal <?php print form_radio('role','es_principal',$this->form_validation->set_radio('role','es_principal',$selected = ($this->form_validation->role == 'es_principal') ? TRUE : FALSE))?>
                 MS Principal <?php print form_radio('role','ms_principal',$this->form_validation->set_radio('role','ms_principal',$selected = ($this->form_validation->role == 'ms_principal') ? TRUE : FALSE))?>
                 HS Principal <?php print form_radio('role','hs_principal',$this->form_validation->set_radio('role','hs_principal',$selected = ($this->form_validation->role == 'hs_principal') ? TRUE : FALSE))?>
-                None <?php print form_radio('role','',$this->form_validation->set_radio('role','',$selected = ($this->form_validation->role == '') ? TRUE : FALSE))?>
+                None <?php print form_radio('role','none',$this->form_validation->set_radio('role','none',$selected = ($this->form_validation->role == 'none') ? TRUE : FALSE))?>
             
             </li>             
 
@@ -127,3 +127,5 @@
     </fieldset>
 <?php endif;?>
 <?php print form_close()?>
+
+

@@ -26,5 +26,7 @@ $lang['hwezemail_subject'] = 'Subject';
 $lang['hwezemail_teachers'] = 'Teachers';
 $lang['hwezemail_teacher'] = 'Teacher';
 $lang['hwezemail_advisory'] = 'Advisory';
+
+$lang['hwezemail_updated'] = 'updated';
 //$lang['hwezemail_create_email'] = 'Create Email';
 //$lang['hwezemail_teachers'] = 'Teachers';
