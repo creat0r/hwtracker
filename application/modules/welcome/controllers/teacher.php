@@ -4,11 +4,13 @@ class Teacher extends Public_Controller
 {
 
     private $teacherid;
+    private $username;
+    private $usergroup;
 
     public function __construct()
     {
         parent::__construct();
-        check('Teachers');
+        //check('Teachers');
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->library('form_validation');
@@ -17,6 +19,14 @@ class Teacher extends Public_Controller
         $this->load->model('kaimonokago/MKaimonokago');
         $this->load->model('Mhomework');
         $this->teacherid=$this->session->userdata('id');
+        $this->username = $this->session->userdata('username');
+        $this->usergroup = $this->session->userdata('group');
+        if(! $this->username || $this->usergroup !=='Teacher')
+        {
+            //redirect
+            //flashMsg('warning','You don\'t have permission to view this page.');
+            redirect ('welcome/student/index','refresh');
+        }
     }
 
 
@@ -24,33 +34,20 @@ class Teacher extends Public_Controller
     {
         $data['header']=$this->preference->item('site_name');
         $data['fttitle']=$this->preference->item('company_name');
-
-        if($this->session->userdata('username') AND $this->session->userdata('group')=='Teacher')
-        {
-            //check('Teachers');
-            // get advisees missing homework
-            $data['advisory'] = $this->Mhomework->getbyadvisory($this->teacherid);
-            $data['teacherid']=$this->teacherid;
-            // display login form
-            $data['title']='Homework Missed by My Advisees';
-            $data['page']="teacher/home";
-            $this->load->view($this->_container, $data); 
-
-        }
-        else
-        {
-            // display login form
-            $data['page']="teacher/index";
-            $this->load->view($this->_container, $data); 
-        }
-                 
-        
-
+        //check('Teachers');
+        // get advisees missing homework
+        $data['advisory'] = $this->Mhomework->getbyadvisory($this->teacherid);
+        $data['teacherid']=$this->teacherid;
+        // display login form
+        $data['title']='Homework Missed by My Advisees';
+        $data['page']="teacher/home";
+        $this->load->view($this->_container, $data); 
     }
+    
 
     function mysubject()
     {
-        check('Teachers');
+        //check('Teachers');
         $data['header']=$this->preference->item('site_name');
         $data['fttitle']=$this->preference->item('company_name');
         $data['title']='All Missed Homework in My Subject';

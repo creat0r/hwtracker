@@ -7,7 +7,7 @@ class Student extends Public_Controller
     public function __construct()
     {
         parent::__construct();
-        check('Students');
+        //check('Students');
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->library('Hwtracker');
@@ -164,7 +164,7 @@ completed and handed in by the next class meeting.</p>
 <p>Thank you<br />
 $username</p>
 
-<p style="font-size:x-small; color:grey;">This email was intended for the parents of $username and sent from $company_name $site_name.</p> 
+<p style="font-size:10px; color:grey;"> -- This email was intended for the parents of $username and sent from $company_name $site_name. -- </p> 
 EOD;
 
             $data['assignmentname']=$assignmentname;
@@ -182,8 +182,8 @@ EOD;
 
     function sendemail()// also insert studentid, assignment_name, teacherid, date to db hw_homework
     {
-        //$to = $this->input->post('to');
-        //$cc = $this->input->post('cc');
+        $to = $this->input->post('to');
+        $cc = $this->input->post('cc');
         $email_subject = $this->input->post('email_subject');
         $content = $this->input->post('content');
         $assignmentname = $this->input->post('assignmentname');
@@ -196,7 +196,7 @@ EOD;
         $config[] = array(
                             'field'=>'to',
                             'label'=>'To',
-                            'rules'=>"trim|required|valid_email"
+                            'rules'=>"trim|required"
                             );
         $config[] = array(
                             'field'=>'cc',
@@ -229,14 +229,21 @@ EOD;
             $config['mailtype'] = 'html';
             $this->email->initialize($config); 
             $this->email->from($useremail,$username);
-            $cc=$to='okada.shin@gmail.com,sokada@canacad.ac.jp';
-            $this->email->to($to);// Send to parents, subject, advisory teacher and principal
-            $this->email->cc($cc);
+
+            if(ENVIRONMENT=='development')
+            {
+                // send to admin_email
+                $to=$this->preference->item('admin_email'); 
+                $this->email->to($to);// send only to $to
+            }
+            else
+            {
+                $this->email->to($to);// Send to parents, subject, advisory teacher and principal
+                $this->email->cc($cc);
+            }
             //$reply_to=array($useremail,$cc,$to);
             //$this->email->reply_to($reply_to);
             $this->email->subject($email_subject);
-            // decode the content htmlspecialchars
-            //$content = htmlspecialchars_decode($content);
             $this->email->message($content);
             $this->email->send();
             

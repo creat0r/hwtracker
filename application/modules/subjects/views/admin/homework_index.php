@@ -17,23 +17,26 @@
         data.addColumn('string', 'Status');
         data.addColumn('string', 'Action');
         data.addRows([
-	 <?php
-		foreach($items as $item)
-    	{
-        $active_icon = ($item['status']=='active'?'tick':'cross');
-        $statuslink = anchor("kaimonokago/admin/changeStatus/subjects/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
-        $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
-         if ($item['status']=='inactive')
+    <?php
+        if(count($items))
+        {
+            foreach($items as $item)
             {
-                $deletelink = anchor('kaimonokago/admin/delete/subjects/'.$item['id'],$this->bep_assets->icon('delete'), array("class" => "delete_link","onclick"=>"return confirmSubmit(\"".$item['name']."\")"));
+            $active_icon = ($item['status']=='active'?'tick':'cross');
+            $statuslink = anchor("kaimonokago/admin/changeStatus/subjects/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
+            $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
+             if ($item['status']=='inactive')
+                {
+                    $deletelink = anchor('kaimonokago/admin/delete/subjects/'.$item['id'],$this->bep_assets->icon('delete'), array("class" => "delete_link","onclick"=>"return confirmSubmit(\"".$item['name']."\")"));
+                }
+                else
+                {
+                    $deletelink ='';
+                }
+              //$link = "testing";  
+                echo "['".$item['name']."','".$statuslink."','".$editlink.$deletelink."' ],\n";
             }
-            else
-            {
-                $deletelink ='';
-            }
-          //$link = "testing";  
-    		echo "['".$item['name']."','".$statuslink."','".$editlink.$deletelink."' ],\n";
-    	}
+        }
 	?>
 
 /*
@@ -53,8 +56,9 @@
 
 
 <?php
+/*
 echo "<pre>items ";
 print_r($items);
 echo "</pre>";
-
+*/
 ?>

@@ -131,7 +131,7 @@ else
     <div id="week_div" style="width:90%; height:300"></div>
 
 <?php
-
+/*
 echo "<pre>hws ";
 print_r($hws);
 echo "</pre>";
@@ -141,7 +141,7 @@ echo "</pre>";
 echo "<pre>hwbyweek ";
 print_r($hwbyweek);
 echo "</pre>";
-
+*/
 ?>
 
 

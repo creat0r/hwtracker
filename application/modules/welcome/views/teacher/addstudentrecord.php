@@ -66,11 +66,12 @@ jQuery.extend(jQuery.mobile.datebox.prototype.options, {
 })
 	</script>
 
-	<?php
+<?php
+/*
 echo "<pre>";
 print_r($subjectlist);
 print_r($students);
 echo "</pre>";
+*/
 
-
-	?>
+?>

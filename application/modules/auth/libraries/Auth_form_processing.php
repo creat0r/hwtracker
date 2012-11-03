@@ -73,6 +73,7 @@ class Auth_form_processing
 			{
 				redirect($this->CI->config->item('userlib_action_admin_login'),'location');
 			}
+			
 			// Otherwise run user action
 			redirect($this->CI->config->item('userlib_action_login'),'location');
 		}
@@ -185,6 +186,10 @@ class Auth_form_processing
 			if (check('Control Panel',NULL,FALSE))
 			{
 				redirect($this->CI->config->item('userlib_action_admin_login'),'location');
+			}
+			elseif(check('Teacher'))
+			{
+				redirect($this->CI->config->item('userlib_action_teacher_login'),'location');
 			}
                 redirect($this->CI->config->item('userlib_action_login'),'location');              
 		}      

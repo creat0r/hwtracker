@@ -145,12 +145,18 @@
 
 
 <?php
+/*
+$sessiondata=$this->session->all_userdata();
 
+echo "<pre> session data: ";
+print_r($sessiondata);
+echo $this->session->userdata('group');
+echo "</pre><br />";
 echo "<pre> teacherid: ";
 echo $teacherid;
 echo "</pre><br />";
 echo "<pre>advisory: ";
 print_r($advisory);
 echo "</pre>";
-
+*/
 ?>

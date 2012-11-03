@@ -142,15 +142,6 @@ else
     <div id="month_div" style="width:90%; height:300"></div>
     <div id="week_div" style="width:90%; height:300"></div>
 
-<?php 
-echo "<pre>";
-print_r($cache);
-//print_r($plaintext_string);
-print_r($encrypted_string);
-echo "</pre>";
-
-//print_r($this->cache->get($page));
-?>  
 
 
 <?php
@@ -198,4 +189,12 @@ echo "<pre>All by week";
 echo "</pre>";
 */
 
-?>
+/*
+echo "<pre>";
+print_r($cache);
+//print_r($plaintext_string);
+print_r($encrypted_string);
+echo "</pre>";
+*/
+//print_r($this->cache->get($page));
+?>  

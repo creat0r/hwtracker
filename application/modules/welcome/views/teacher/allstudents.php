@@ -158,22 +158,12 @@ else
 <div id="subject_div" style="width:90%; height:300"></div>
    
 <?php
-
-    
-
-?>
-
-
-
-
-
-
-
-<?php
+/*
 echo "<pre> teacherid: ";
 //echo $teacherid;
 echo "</pre><br />";
 echo "<pre>";
 print_r($allmystudents);
 echo "</pre>";
+*/
 ?>

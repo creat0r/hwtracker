@@ -55,9 +55,14 @@ else
 	echo "no";
 }
 
-
+echo "<pre>";
 echo "session info: ";
-	print_r($this->session->all_userdata()) ;
+print_r($this->session->all_userdata()) ;
+echo "</pre>";
+*/
+
+
+	/*
 	echo "<br />";
 print_r($teachername);
 

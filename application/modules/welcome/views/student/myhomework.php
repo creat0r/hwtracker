@@ -158,7 +158,7 @@ else
     print_r ($hw);
   }
   echo "</pre>";
-  */
+
 echo "<pre>by subject";
 print_r($hwdetails);
 echo "</pre>";
@@ -172,7 +172,7 @@ echo "<pre>total";
 print_r($hwtotal);
 echo "</pre>";
 
-/*
+
 echo "<pre>All by month";
   print_r($hwdetailsbyallmonth);
 echo "</pre>";

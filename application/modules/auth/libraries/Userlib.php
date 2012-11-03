@@ -175,6 +175,14 @@ class Userlib
                     
 			if( is_user())
 			{
+				if($group=='Teacher')
+				{
+					redirect('welcome/teacher','location');
+				}
+				elseif($group=='Student')
+				{
+					redirect('welcome/student','location');
+				}
 				// They just don't have access
 				flashMsg('warning',$this->CI->lang->line('userlib_status_restricted_access'));
 				redirect('auth/login','location');

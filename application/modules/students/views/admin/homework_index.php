@@ -18,10 +18,14 @@
         //data.addColumn('number', '');
         data.addRows([
 	 <?php
-		foreach($items as $item)
-    	{
-    		echo "['".$item['first_name']."', '".$item['last_name']."'],";
-    	}
+   if(count($items))
+   {
+        foreach($items as $item)
+        {
+            echo "['".$item['first_name']."', '".$item['last_name']."'],";
+        }
+   }
+		
 	?>
 
 /*
@@ -41,8 +45,9 @@
 
 
 <?php
+/*
 echo "<pre>items ";
 print_r($items);
 echo "</pre>";
-
+*/
 ?>

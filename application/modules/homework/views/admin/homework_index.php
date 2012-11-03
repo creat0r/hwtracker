@@ -16,11 +16,15 @@
         data.addColumn('string', 'Last Name');
         data.addColumn('number', 'Number of Homework Missed');
         data.addRows([
-	 <?php
-		foreach($hwall as $hw)
-    	{
-    		echo "['<a href=\"".site_url()."/homework/admin/student/".$hw['studentid']."\">".$hw['first_name']."</a>', '".$hw['last_name']."',".$hw['COUNT(studentid)']."],";
-    	}
+	<?php
+        if(count($hwall))
+        {
+            foreach($hwall as $hw)
+            {
+                echo "['<a href=\"".site_url()."/homework/admin/student/".$hw['studentid']."\">".$hw['first_name']."</a>', '".$hw['last_name']."',".$hw['COUNT(studentid)']."],";
+            }
+        }
+		
 	?>
 
 /*
@@ -40,9 +44,9 @@
 
 
 <?php
-
+/*
 echo "<pre>";
 print_r($hwall);
 echo "</pre>";
-
+*/
 ?>

@@ -22,8 +22,8 @@
  * has been completed DO NOT SEND THE LOGIN ACTIONS BACK TO
  * THE LOGIN CONTROLLER, IT WILL CAUSE AN INFINITE LOOP
  */
-$config['userlib_action_login'] = '';
-$config['userlib_action_logout'] = '';
+$config['userlib_action_login'] = 'welcome/student';
+$config['userlib_action_logout'] = 'auth/login';
 $config['userlib_action_register'] ='auth/register';
 $config['userlib_action_activation'] ='';
 $config['userlib_action_forgotten_password'] = 'auth/login';
@@ -31,6 +31,7 @@ $config['userlib_action_admin_login'] = 'admin';
 $config['userlib_action_admin_logout'] = '';
 $config['userlib_forgotten_password'] = 'auth/forgotten_password';
 $config['userlib_action_auth_login'] = 'auth/login';
+$config['userlib_action_teacher_login'] = 'welcome/teacher';
 //$config['uselib_action_admin_login'] = 'admin';
 
 /**
