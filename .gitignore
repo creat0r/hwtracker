@@ -3,14 +3,13 @@
 application/config/database.php
 application/config/config.php
 application/cache/
-application/modules/recaptcha/config/recaptcha.php
-sublime/
+# application/modules/recaptcha/config/recaptcha.php
 system/cache/
 hwezemail2.sublime-project
 hwezemail2.sublime-workspace
 # Vim leave-behinds
 *.swp
-
+*.sql
 
 # Windows files
 *.bak
