@@ -3,6 +3,7 @@
 class Student extends Public_Controller 
 {
     private $configcachetime;
+    private $username;
 
     public function __construct()
     {
@@ -16,6 +17,15 @@ class Student extends Public_Controller
         $this->load->model('kaimonokago/MKaimonokago');
         $this->load->model('Mhomework');
         $this->configcachetime=$this->config->item('cachetime');
+        $this->username = $this->session->userdata('username');
+        if($this->username)
+        {
+            if($this->_checksetting()==FALSE)
+                {
+                    flashMsg('warning', 'You have to fillup all the fields in your setting. Please go to setting and fill it up.');
+                    //redirect('welcome/student/setting/','refresh');   
+                }
+        }
     }
 
 
@@ -28,6 +38,7 @@ class Student extends Public_Controller
         {
             if($this->session->userdata('username') AND $this->session->userdata('group')=='Student')
             {
+                
                 // display subjects, teachers, assignment input etc.
                 // get subject list
                 $module ='subjects';
@@ -283,17 +294,6 @@ EOD;
         if($this->input->post('submit'))
         {
             //form is submitted 
-            // validate
-            // VALIDATION FIELDS
-            /*
-            $fields['id'] = "ID";
-            $fields['confirm_password'] = $this->lang->line('userlib_confirm_password');
-            $fields['group'] = $this->lang->line('userlib_group');
-            $fields['active'] = $this->lang->line('userlib_active');
-            $fields = array_merge($fields, $this->config->item('userlib_profile_fields'));
-            $config;
-            $this->form_validation->set_fields($fields);
-            */
             // Setup validation rules
             if(is_null($id))
             {
@@ -373,7 +373,6 @@ EOD;
             }
             else
             {
-                
                 // SAVE
                 $user = $this->_get_user_details();//get id, username, email from post
                 $user['modified'] = date('Y-m-d H:i:s');
@@ -400,18 +399,14 @@ EOD;
                 {
                     $this->db->trans_rollback();
                     flashMsg('error',sprintf($this->lang->line('backendpro_action_failed'),$this->lang->line('userlib_edit_user')));
-                }
-                
+                }   
                 //flashMsg('success','test');
                 redirect('welcome/student/index','refresh'); 
             }
-            // upto her from funciton form()
         }
         else
         {
-
             //load data from db
-           
             // set default value
             $this->form_validation->set_default_value('id',$user['id']);
             $this->form_validation->set_default_value('username',$user['username']);
@@ -478,10 +473,6 @@ EOD;
             // get total homework missed 
             $data['hwtotal']=$this->Mhomework->get_total($what);
 
-            // total homework missed
-            //$data['hwdetailsbyallmonth']=$this->Mhomework->gethwbydate($month);
-            //$data['hwdetailsbyallweek']=$this->Mhomework->gethwbydate($week);
-
             $data['title']="My Missed Homework";
             $data['header']=$this->preference->item('site_name');
             $data['fttitle']=$this->preference->item('company_name');
@@ -489,12 +480,7 @@ EOD;
             $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
             $data['encrypted']=$encrypted;
             $cachedpage = $data;
-            // get time from preference
-            /*
-            $this->preference->item('cachepagetime');
-            // Save into the cache for 5 minutes
-            $this->cache->save($encrypted, $cachedpage, 300);
-            */
+
             // get time from preference
              
             if($this->preference->item('cachepagetime')>0)
@@ -506,7 +492,6 @@ EOD;
                 $cachetime=$this->configcachetime;
             }
 
-                
             // Save into the cache for 5 minutes
             $this->cache->save($encrypted, $cachedpage, $cachetime);
 
@@ -518,8 +503,7 @@ EOD;
         {
             flashMsg('warning', 'Refresh and try it again....');
             redirect('welcome/student/index', 'refresh');
-        }
-        
+        }   
     }
 
 
@@ -586,6 +570,7 @@ EOD;
     }
 
 
+
     function _pull_profile_details($id)
     {
         $row = array();
@@ -619,17 +604,29 @@ EOD;
 
 
     /*
-    * check setting field is filled
-    */
+    * check setting field is filled for student
+    * This needs to check email, first_name, last_name, parent_email1, advisor
+    */ 
     function _checksetting()
     {
-        /*
         //get id from the session
         $id  = $this->session->userdata('id');
         // get user details from id
         $user=$this->user_model->getUsers(array('users.id'=>$id));
         $user = $user->row_array();
-*/
+        $email = $user['email'];
+        $first_name= $user['first_name'];
+        $last_name =$user['last_name'];
+        $parent_email1 =$user['parent_email1'];
+        $advisor=$user['advisor'];
+        if ($email AND $first_name AND $last_name AND $parent_email1 AND $advisor)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
     }
 
     /*

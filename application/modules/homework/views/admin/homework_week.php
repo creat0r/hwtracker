@@ -10,15 +10,15 @@
         data.addColumn('string', 'Last Name');
         data.addColumn('number', 'Number of Homework Missed This Week');
         data.addRows([
-    <?php
+	<?php
         if(count($hwall))
         {
             foreach($hwall as $hw)
             {
                 echo "['<a href=\"".site_url()."/homework/admin/student/".$hw['studentid']."\">".$hw['first_name']."</a>', '".$hw['last_name']."',".$hw['COUNT(studentid)']."],";
             }
-        }   
-    ?>
+        }	
+	?>
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
@@ -27,7 +27,7 @@
     </script>
  <div id='table_div'></div>
 <?php else: ?>
-    <h3>No data at the moment</h3>
+	<h3>No data at the moment</h3>
 <?php endif; ?>
 
 

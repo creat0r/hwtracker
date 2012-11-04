@@ -36,10 +36,10 @@ class Admin extends Shop_Admin_Controller
         // get all the homework by student
         $data['hwall']=$this->Mhomework->getallmystudents($id=NULL);
         //$data = $this->common_home();
-        $data['page'] = $this->config->item('backendpro_template_admin') . "homework_index";
+        $data['page'] = $this->config->item('backendpro_template_admin') . "homework_general";
         $data['module'] = $this->module;
         $data['header'] = $this->lang->line('backendpro_access_control');
-        $data['title']=ucfirst($this->module);
+        $data['title']=ucfirst($this->module).' Total Number Missed';
         $this->load->view($this->_container,$data);
     }
 
@@ -72,6 +72,54 @@ class Admin extends Shop_Admin_Controller
     }
 
 
+    function show_week()
+    {
+        //getallmystudents($id=NULL, $week=NULL, $month=NULL)
+        $date=$this->uri->segment(4);//this_week, last_week
+        $data['hwall']=$this->Mhomework->getallmystudents($id=NULL, $date, NULL);
+        $data['page'] = $this->config->item('backendpro_template_admin') . "homework_general";
+        $data['module'] = $this->module;
+        $data['header'] = $this->lang->line('backendpro_access_control');
+        $thisweek = date("W-Y");
+        $lastweek = date("W-Y", strtotime("-1 week") ) ;
+        if($date=='this_week')
+        {
+            $data['title']='Homework Missed during Week '.$thisweek;
+        }
+        elseif($date=='last_week')
+        {
+            $data['title']='Homework Missed during Week '.$lastweek;
+        }
+        
+        // Set breadcrumb
+        $this->bep_site->set_crumb($this->lang->line('hwezemail_homework')." by Week",$this->module.'/admin/show_week/');    
+        $this->load->view($this->_container,$data);
+    }
+
+    function show_month()
+    {
+        $date=$this->uri->segment(4);//this_week, last_week
+        $data['hwall']=$this->Mhomework->getallmystudents($id=NULL, NULL, $date);
+        $data['page'] = $this->config->item('backendpro_template_admin') . "homework_general";
+        $data['module'] = $this->module;
+        $data['header'] = $this->lang->line('backendpro_access_control');
+        $thismonth = date("F-Y"); 
+        $lastmonth=date("F-Y", strtotime("-1 month") ) ;
+        if($date=='this_month')
+        {
+            $data['title']='Homework Missed during '.$thismonth;
+        }
+        elseif($date=='last_month')
+        {
+            $data['title']='Homework Missed during '.$lastmonth;
+        }
+        
+        // Set breadcrumb
+        $this->bep_site->set_crumb($this->lang->line('hwezemail_homework')." by Month",$this->module.'/admin/show_week/');    
+        $this->load->view($this->_container,$data);
+    }
+
+
     function edit()
     {
         // edit hw by hw id
@@ -101,6 +149,13 @@ class Admin extends Shop_Admin_Controller
         $this->load->view($this->_container,$data);
     }
     
+
+    function delete_hw()
+    {
+
+
+
+    }
 
 
 }

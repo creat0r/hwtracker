@@ -1,7 +1,6 @@
-<h2><?php echo $title;?></h2>
 
+<?php $this->load->view('admin/topmenu'); ?>
 
-<div class="clearboth">&nbsp;</div>
 <script type="text/javascript">
     
     // Load the Visualization API and the piechart package.

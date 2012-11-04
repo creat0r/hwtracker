@@ -144,7 +144,7 @@ class Mhomework extends CI_Model
     *
     */
 
-    function getallmystudents($id=NULL)
+    function getallmystudents($id=NULL, $week=NULL, $month=NULL)
     {
         if(! empty($id))
         {
@@ -157,11 +157,58 @@ class Mhomework extends CI_Model
         }
         else
         {
-            $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
-            FROM be_user_profiles
-            RIGHT JOIN hw_homework
-            ON be_user_profiles.user_id= hw_homework.studentid
-            GROUP BY be_user_profiles.user_id";
+            if(! empty($week))
+            {
+                if($week=='this_week')
+                {
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    FROM be_user_profiles
+                    RIGHT JOIN hw_homework
+                    ON be_user_profiles.user_id= hw_homework.studentid
+                    WHERE DATE_FORMAT(`date`, '%U') = DATE_FORMAT(NOW(), '%U')
+                    GROUP BY be_user_profiles.user_id"; 
+                }
+                elseif($week=='last_week')
+                {
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    FROM be_user_profiles
+                    RIGHT JOIN hw_homework he
+                    ON be_user_profiles.user_id= he.studentid
+                    WHERE DATE_FORMAT(`date`, '%U') = DATE_FORMAT(NOW(), '%U')-1
+                    GROUP BY be_user_profiles.user_id"; 
+                }
+                
+            }
+            elseif(! empty($month))
+            {
+                if($month=='this_month')
+                {
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    FROM be_user_profiles
+                    RIGHT JOIN hw_homework
+                    ON be_user_profiles.user_id= hw_homework.studentid
+                    WHERE DATE_FORMAT(`date`, '%M') = DATE_FORMAT(NOW(), '%M')
+                    GROUP BY be_user_profiles.user_id";
+                }
+                elseif($month=='last_month')
+                {
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    FROM be_user_profiles
+                    RIGHT JOIN hw_homework
+                    ON be_user_profiles.user_id= hw_homework.studentid
+                    WHERE date BETWEEN date_format(NOW() - INTERVAL 1 MONTH, '%Y-%m-01') AND last_day(NOW() - INTERVAL 1 MONTH)
+                    GROUP BY be_user_profiles.user_id";  
+                }
+                
+            }
+            else
+            {
+                $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                FROM be_user_profiles
+                RIGHT JOIN hw_homework
+                ON be_user_profiles.user_id= hw_homework.studentid
+                GROUP BY be_user_profiles.user_id";
+            }
         }
         
         //$this->db->get_where('hw_homework', array(''));
@@ -174,6 +221,10 @@ class Mhomework extends CI_Model
                 $data[] = $row;
             }
               
+        }
+        else
+        {
+            $data='';
         }
         $query->free_result();
         return $data;
