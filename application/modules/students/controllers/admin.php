@@ -34,10 +34,26 @@ class Admin extends Shop_Admin_Controller
         // get all the students
         $where= array('group'=>4);
         //$what='5';
+        //$student=TRUE;
+        //$students=$this->user_model->getUsers($where, $limit = array('limit' => NULL, 'offset' => ''),$student);
         $students=$this->user_model->getUsers($where);
         $students=$students->result_array();
         $data['items']=$students;
-        
+
+        // get all the teacher for student advisor
+        $where= array('group'=>5);
+        //$what='5';
+        $advisors=$this->user_model->getUsers($where);
+        $advisors=$advisors->result_array();
+        $data['advisors']=$advisors;
+
+        // find advisor for each student
+        /*
+        foreach($students as $student)
+        {
+            
+        }
+        */
         $data['page'] = $this->config->item('backendpro_template_admin') . "homework_index";
         $data['module'] = $this->module;
         $data['header'] = $this->lang->line('backendpro_access_control');

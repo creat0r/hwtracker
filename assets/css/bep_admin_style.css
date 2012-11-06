@@ -80,7 +80,7 @@ h2 { margin-top: 0.5em; border-bottom: 1px solid #777; }
   /*  vertical-align: top; */
 }
 #preference_form input.text{ width: 90%; }
-#content #preference_form input.text{
+#content #preference_form input.text,#content #preference_form textarea {
     width: 90%;
     padding: 5px;
 }

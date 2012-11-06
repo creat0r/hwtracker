@@ -15,6 +15,10 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'First Name');
         data.addColumn('string', 'Last Name');
+        data.addColumn('string', 'email');
+        data.addColumn('string', 'Parent email 1');
+        data.addColumn('string', 'Parent email 2');
+        data.addColumn('string', 'Advisor');
         //data.addColumn('number', '');
         data.addRows([
 	 <?php
@@ -22,7 +26,15 @@
    {
         foreach($items as $item)
         {
-            echo "['".$item['first_name']."', '".$item['last_name']."'],";
+            foreach($advisors as $key=>$advisor)
+            {
+                if($item['advisor']==$advisor['id'])
+                {
+                    $ad=$advisor['last_name'];
+                }
+            }
+            echo "['".$item['first_name']."', '".$item['last_name']."', '".$item['email']
+            ."', '".$item['parent_email1']."', '".$item['parent_email2']."', '".$ad."'],";
         }
    }
 		
@@ -49,5 +61,9 @@
 echo "<pre>items ";
 print_r($items);
 echo "</pre>";
+echo "<pre>advisors ";
+print_r($advisors);
+echo "</pre>";
 */
+
 ?>

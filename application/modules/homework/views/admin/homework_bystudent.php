@@ -34,7 +34,7 @@
     ]);
 
     // Set chart options
-    var options = {'title':'Missed Homework',
+    var options = {'title':'Missed Homework by Subject',
                  //'width':90%,
                  //'height':300
 //setup colors

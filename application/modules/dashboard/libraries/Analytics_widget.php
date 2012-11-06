@@ -29,11 +29,15 @@ class Analytics_widget
 
     function create()
     {
+        $this->CI->load->library('encrypt');
+        $password=$this->CI->preference->item('ga_password');
+        $password=$this->CI->encrypt->decode($password);
         try{
     // analytics
     $this->CI->load->library('dashboard/Analytics', array(
                                    'username' => $this->CI->preference->item('ga_email'),
-                                   'password' => $this->CI->preference->item('ga_password')
+                                   //'password' => $this->CI->preference->item('ga_password')
+                                   'password' => $password
                                     ));
 
     // Set by GA Profile ID if provided, else try and use the current domain

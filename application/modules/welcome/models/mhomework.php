@@ -148,7 +148,7 @@ class Mhomework extends CI_Model
     {
         if(! empty($id))
         {
-            $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+            $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
             FROM hw_homework 
             LEFT JOIN be_user_profiles
             ON be_user_profiles.user_id= hw_homework.studentid
@@ -161,7 +161,7 @@ class Mhomework extends CI_Model
             {
                 if($week=='this_week')
                 {
-                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
                     FROM be_user_profiles
                     RIGHT JOIN hw_homework
                     ON be_user_profiles.user_id= hw_homework.studentid
@@ -170,7 +170,7 @@ class Mhomework extends CI_Model
                 }
                 elseif($week=='last_week')
                 {
-                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%U') `WeekNo`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
                     FROM be_user_profiles
                     RIGHT JOIN hw_homework he
                     ON be_user_profiles.user_id= he.studentid
@@ -183,7 +183,7 @@ class Mhomework extends CI_Model
             {
                 if($month=='this_month')
                 {
-                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
                     FROM be_user_profiles
                     RIGHT JOIN hw_homework
                     ON be_user_profiles.user_id= hw_homework.studentid
@@ -192,7 +192,7 @@ class Mhomework extends CI_Model
                 }
                 elseif($month=='last_month')
                 {
-                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                    $Q="SELECT studentid, DATE_FORMAT(`date`, '%M') `Month`,COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
                     FROM be_user_profiles
                     RIGHT JOIN hw_homework
                     ON be_user_profiles.user_id= hw_homework.studentid
@@ -203,7 +203,7 @@ class Mhomework extends CI_Model
             }
             else
             {
-                $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name
+                $Q="SELECT studentid, COUNT(studentid),be_user_profiles.first_name, be_user_profiles.last_name, be_user_profiles.advisor
                 FROM be_user_profiles
                 RIGHT JOIN hw_homework
                 ON be_user_profiles.user_id= hw_homework.studentid

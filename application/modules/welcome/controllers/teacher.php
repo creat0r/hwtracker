@@ -107,8 +107,14 @@ class Teacher extends Public_Controller
                     $config[] = array(
                                     'field'=>'gender',
                                     'label'=>'Gender',
-                                    'rules'=>"trim|required"
+                                    'rules'=>"trim"
                                     );
+                   // don't add this since it is an array
+                   /* $config[] = array(
+                                    'field'=>'school',
+                                    'label'=>'School',
+                                    'rules'=>"trim"
+                                    );*/
                     
             // Use edit user rules (make sure no-one other than the current user has the same email)
             }
@@ -128,6 +134,7 @@ class Teacher extends Public_Controller
                 $this->form_validation->set_default_value('first_name',$user['first_name']);
                 $this->form_validation->set_default_value('last_name',$user['last_name']);
                 $this->form_validation->set_default_value('gender',$user['gender']);
+                $this->form_validation->set_default_value('school',$user['school']);
                 //$this->form_validation->set_default_value('parent_email2',$user['parent_email2']);
                 //$this->form_validation->set_default_value('advisor',$user['advisor']);
                 // dropdown for advisor/teacher list
@@ -145,7 +152,7 @@ class Teacher extends Public_Controller
                 // SAVE
                 $user = $this->_get_user_details();//get id, username, email from post
                 $user['modified'] = date('Y-m-d H:i:s');
-                // get first_name, last_name, parent_email1, parent_email2 from post
+                // get first_name, last_name, gender and school from post
                 $profile = $this->_get_profile_details();
 
                 $this->db->trans_begin();
@@ -187,6 +194,7 @@ class Teacher extends Public_Controller
             $this->form_validation->set_default_value('first_name',$user['first_name']);
             $this->form_validation->set_default_value('last_name',$user['last_name']);
             $this->form_validation->set_default_value('gender',$user['gender']);
+            $this->form_validation->set_default_value('school',$user['school']);
 
             $data['user']=$user;
             $data['title']="My Settings";
@@ -333,12 +341,20 @@ class Teacher extends Public_Controller
             //$what='5';
             $students=$this->user_model->getUsers($where);
             $students=$students->result_array();
-            foreach($students as $student)
+            
+            if(! empty($students))
             {
-                $studentdata[$student['id']] = $student['first_name']." ".$student['last_name'];
+                foreach($students as $student)
+                {
+                    $studentdata[$student['id']] = $student['first_name']." ".$student['last_name'];
+                }
+                $data['students']=$this -> add_blank_option($studentdata, ' - Choose Student -');
             }
-            $data['students']=$this -> add_blank_option($studentdata, ' - Choose Student -');
-
+            else
+            {
+                $data['students']="";
+            }
+            
             //$data['students']=$studentdata;
 
             //subject dropdown
@@ -452,9 +468,16 @@ class Teacher extends Public_Controller
         $data = array();
         $data['first_name'] = $this->input->post('first_name');
         $data['last_name'] = $this->input->post('last_name');
-        $data['parent_email1'] = $this->input->post('parent_email1');
-        $data['parent_email2'] = $this->input->post('parent_email2');
-        $data['advisor'] = $this->input->post('advisor');
+        $data['gender'] = $this->input->post('gender');
+        $school = $this->input->post('school');
+        
+        if($school && is_array($school))// check it if school has value, otherwise implode will give error.
+        {
+            $school = implode(",", $school);
+            $data['school'] = $school;
+        }
+        
+        
         return $data;
     }
     

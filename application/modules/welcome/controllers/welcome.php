@@ -47,15 +47,50 @@ class Welcome extends Public_Controller
     {
         $page=$this->uri->segment(3);
         $data['encrypted_string'] = $page;
-
-        //$data['plaintext_string'] = $this->encrypt->decode($encrypted_string);
-        //$foo = $this->cache->get('my_cached_item');
-        //$data['title']="Missed Homework by ";
         $data['header']=$this->preference->item('site_name');
         $data['fttitle']=$this->preference->item('company_name');
         $data['cache'] = $this->cache->get($page);
-        $data['page']="test/index";
-
+        $data['page']="public/index";
         $this->load->view($this->_container, $data);
     }
+
+
+    function formtest()
+    {
+        if($this->input->post('submit'))
+        {
+            $profile = $this->_get_profile_details();
+            $data['profile']=$profile;
+        }
+        else
+        {
+            $data['profile']="no profile";
+        }
+        $data['header']=$this->preference->item('site_name');
+        $data['fttitle']=$this->preference->item('company_name');
+        
+        $data['page']="test/test1";
+        $this->load->view($this->_container, $data);
+
+    }
+
+    function _get_profile_details()
+    {
+        $data = array();
+        $data['username'] = $this->input->post('username');
+        $data['email'] = $this->input->post('email');
+        $data['first_name'] = $this->input->post('first_name');
+        $data['last_name'] = $this->input->post('last_name');
+        $data['gender'] = $this->input->post('gender');
+        $schoolarray=$school = $this->input->post('school');
+        if($school AND is_array($school))
+        {
+            $school = implode(",", $school);
+            $data['school'] = $school;
+        }
+        
+        //$data['schoolarray']=$schoolarray;
+        return $data;
+    }
+
 }//end controller class

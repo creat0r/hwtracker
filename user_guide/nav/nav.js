@@ -54,8 +54,8 @@ function create_menu(basepath)
 
 		'<h3>Additional Resources</h3>' +
 		'<ul>' +
-		'<li><a href="http://codeigniter.com/forums/">Community Forums</a></li>' +
-		'<li><a href="http://codeigniter.com/wiki/">Community Wiki</a></li>' +
+		'<li><a href="http://HWtracker.com/forums/">Community Forums</a></li>' +
+		'<li><a href="http://HWtracker.com/wiki/">Community Wiki</a></li>' +
 		'</ul>' +
 
 		'</td><td class="td_sep" valign="top">' +

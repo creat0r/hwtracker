@@ -314,7 +314,7 @@ class Preference_form
 		$params['name'] = $key;
 		$params['id'] = $key;
         $params['type'] = 'password';
-		$params['value'] = '';
+    	$params['value'] = '';
 		return form_input($params);
 	}
 /*

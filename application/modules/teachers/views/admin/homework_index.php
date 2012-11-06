@@ -14,6 +14,7 @@
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'First Name');
         data.addColumn('string', 'Last Name');
+        data.addColumn('string', 'School');
         //data.addColumn('number', '');
         data.addRows([
 	<?php
@@ -21,7 +22,7 @@
         {
             foreach($items as $item)
             {
-                echo "['".$item['first_name']."', '".$item['last_name']."'],";
+                echo "['".$item['first_name']."', '".$item['last_name']."', '".strtoupper($item['school'])."'],";
             }
         }	
 	?>
@@ -43,9 +44,9 @@
 
 
 <?php
-/*
+
 echo "<pre>items ";
 print_r($items);
 echo "</pre>";
-*/
+
 ?>

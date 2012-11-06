@@ -55,9 +55,34 @@
     echo form_input($last_name)."\n";
     echo "</div>\n\n";
 
- 
 
+    echo '<div data-role="fieldcontain">'."\n";
+    echo '<fieldset data-role="controlgroup">'."\n";
+    echo "<legend for='school'><em>* </em> School</legend>"."\n";
+    $mystring = $this->form_validation->school;
+    $findes   = 'es'; $findms='ms'; $findhs='hs';
+    $es = strpos($mystring, $findes); $ms = strpos($mystring, $findms); $hs = strpos($mystring, $findhs);
+    $dataes = array('name'=>'school[]','id'=>'es','value'=>'es','checked'=>($es !== FALSE ) ? 'checked' : '');
+    $datams = array('name'=>'school[]','id'=>'ms','value'=>'ms','checked'=>($ms !== FALSE ) ? 'checked' : '');
+    $datahs = array('name'=>'school[]','id'=>'hs','value'=>'hs','checked'=>($hs !== FALSE ) ? 'checked' : '');
+    echo form_checkbox($dataes).'<label for="es">Elementary School</label>'."\n";
+    echo form_checkbox($datams).'<label for="ms">Middle School</label>'."\n";
+    echo form_checkbox($datahs).'<label for="hs">High School</label>'."\n";     
+    echo '</fieldset>'."\n";
+    echo "</div>\n\n";
 
+    //gender
+    echo '<div data-role="fieldcontain">'."\n";
+    echo '<fieldset data-role="controlgroup">'."\n";
+    echo "<legend for='gender'><em>* </em> Gender</legend>"."\n";
+    $datamale= array('name' =>'gender' , 'id'=>'male', 'value'=>'male','checked'=>($this->form_validation->gender == 'male' ? 'checked' : '') );
+    $datafemale= array('name' =>'gender' , 'id'=>'female', 'value'=> 'female','checked'=>($this->form_validation->gender == 'female' ? 'checked' : '') );
+    //echo "Male ".form_radio('gender','male','id'='male' $this->form_validation->set_radio('gender','male',$selected = ($this->form_validation->gender == 'male') ? TRUE : FALSE))."\n";
+    //echo "Female ".form_radio('gender','female','id'='female' $this->form_validation->set_radio('gender','female',$selected = ($this->form_validation->gender == 'female') ? TRUE : FALSE))."\n";
+    echo form_radio($datamale).'<label for="male">Male</label>'."\n";
+    echo form_radio($datafemale).'<label for="female">Female</label>'."\n";
+    echo '</fieldset>'."\n";
+    echo "</div>\n\n";
 
 
 
@@ -98,6 +123,7 @@
     echo '<a href="'. base_url().'index.php/welcome/teacher/changepw/" data-role="button" data-inline="true" data-ajax="false" data-icon="plus" data-mini="true" data-theme="c">Change Password</a>'
 ?>
 
+
 <script>
 
     $("#myform3").validate();
@@ -106,6 +132,14 @@
 
 <?php
 /*
+var_dump($es);
+echo "<br />";
+var_dump($ms);
+echo "<br />";
+var_dump($hs);
+echo "<br />";
+echo $this->form_validation->school;
+
 //echo $this->form_validation->username;
 echo "setting page";
 echo "<pre>";

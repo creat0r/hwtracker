@@ -9,13 +9,23 @@
         data.addColumn('string', 'First Name');
         data.addColumn('string', 'Last Name');
         data.addColumn('number', 'Number of Homework Missed');
+        data.addColumn('string', 'Advisor');
+        //data.addColumn('string', 'Advisor');
         data.addRows([
 	<?php
         if(count($hwall))
         {
             foreach($hwall as $hw)
             {
-                echo "['<a href=\"".site_url()."/homework/admin/student/".$hw['studentid']."\">".$hw['first_name']."</a>', '".$hw['last_name']."',".$hw['COUNT(studentid)']."],";
+                foreach($advisors as $key=>$advisor)
+                {
+                    if($hw['advisor']==$advisor['id'])
+                    {
+                        $ad=$advisor['last_name'];
+                    }
+                }
+                echo "['<a href=\"".site_url()."/homework/admin/student/".$hw['studentid']."\">".$hw['first_name']
+                ."</a>', '".$hw['last_name']."',".$hw['COUNT(studentid)'].", '".$ad."'],";
             }
         }	
 	?>
@@ -33,7 +43,9 @@
 
 
 <?php
+/*
 echo "<pre>";
 print_r($hwall);
 echo "</pre>";
+*/
 ?>

@@ -73,13 +73,16 @@ class Members extends Admin_Controller
 	 */
 	function _set_profile_defaults()
 	{
-		$this->form_validation->set_default_value('first_name','First Name');
-		$this->form_validation->set_default_value('last_name','Last Name');
-		$this->form_validation->set_default_value('parent_email1','Parent Email 1');
-		$this->form_validation->set_default_value('parent_email2','Parent Email 2');
-		$this->form_validation->set_default_value('advisor','Advisor');
-		$this->form_validation->set_default_value('gender','female');
-		$this->form_validation->set_default_value('role','');
+		//$this->form_validation->set_default_value('first_name','First');
+		//$this->form_validation->set_default_value('last_name','Last');
+		//$this->form_validation->set_default_value('parent_email1','Parent Email 1');
+		//$this->form_validation->set_default_value('parent_email2','Parent Email 2');
+		//$this->form_validation->set_default_value('advisor','Advisor');
+		//$this->form_validation->set_default_value('gender','');
+		$this->form_validation->set_default_value('role','none');
+		//return;
+		//$this->form_validation->set_default_value('school','');
+
 	}
 
 	/**
@@ -125,6 +128,15 @@ class Members extends Admin_Controller
 		$data['advisor'] = $this->input->post('advisor');
 		$data['gender'] = $this->input->post('gender');
 		$data['role'] = $this->input->post('role');
+
+		$school = $this->input->post('school');
+		if($school)// check it if school has value, otherwise implode will give error.
+		{
+			$school = implode(",", $school);
+		}
+		
+		$data['school'] = $school;
+		// here change checkbox input to 
 		//$data['teacher'] = $this->input->post('teacher');
 		return $data;
 	}
@@ -182,7 +194,6 @@ class Members extends Admin_Controller
                                     'label'=>$this->lang->line('userlib_confirm_password'),
                                     'rules'=>"trim|required"
                                     );
-
 		}
 		else
 		{
@@ -221,6 +232,7 @@ class Members extends Admin_Controller
                                     'label'=>'Role',
                                     'rules'=>"trim"
                                     );
+                    
 			// Use edit user rules (make sure no-one other than the current user has the same email)
 		}
 		//$config = array_merge($config,$this->config->item('userlib_profile_rules'));
@@ -240,8 +252,8 @@ class Members extends Admin_Controller
 		elseif( is_null($id) AND ! $this->input->post('submit'))
 		{
 			// Create form, first load
-			$this->form_validation->set_value('group',$this->preference->item('default_user_group'));
-			$this->form_validation->set_value('active','1');
+			$this->form_validation->set_default_value('group',$this->preference->item('default_user_group'));
+			$this->form_validation->set_default_value('active','1');
 
 			// Setup profile defaults
 			$this->_set_profile_defaults();
@@ -278,7 +290,7 @@ class Members extends Admin_Controller
 			// Save form
 			if( is_null($id))
 			{
-				// CREATE
+				// CREATE. It is the first time so insert.
 				// Fetch form values
 				$user = $this->_get_user_details();
 				$user['created'] = date('Y-m-d H:i:s');
@@ -303,7 +315,7 @@ class Members extends Admin_Controller
 			}
 			else
 			{
-				// SAVE
+				// SAVE. There is already id, so update it
 				$user = $this->_get_user_details();
 				$user['modified'] = date('Y-m-d H:i:s');
 				$profile = $this->_get_profile_details();

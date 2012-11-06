@@ -58,17 +58,18 @@ echo form_close();
 ?>
 
 <?php
+/*
 echo "<pre>session data: ";
 print_r($this->session->all_userdata());
 echo "</pre>";
+*/
 
-//print_r($userdetails);
-//echo "<br />";
 
 //$teachername=array_shift($arrayteachers);
 //print_r($teachername);
 //print_r($subjectname);
 //print_r($advisor);
+/*
 echo "<pre>userdetails: ";
 print_r($userdetails);
 echo "</pre>";
@@ -83,6 +84,7 @@ echo "<pre>principaldetails: ";
 //print_r($data);
 print_r($principaldetails);
 echo "</pre>";
+*/
 //echo "<pre>advisor: ";
 //print_r($data);
 //print_r($advisor);

@@ -3,6 +3,7 @@
 application/config/database.php
 application/config/config.php
 application/cache/
+backups/
 # application/modules/recaptcha/config/recaptcha.php
 system/cache/
 hwezemail2.sublime-project

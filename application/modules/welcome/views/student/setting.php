@@ -57,11 +57,19 @@
 
     echo '<div data-role="fieldcontain">'."\n";
 	echo '<label for="advisor"><em>* </em> Advisor: </label>'."\n";
-	$options = array(
-			$this->form_validation->advisor
-		);
-	echo form_dropdown('advisor', $advisor,  $options, 'id="advisor" class="required" data-native-menu="false" data-theme="c"')."<br />\n";
-	echo "</div>\n\n";
+    if(!empty($advisor))
+    {
+        $options = array(
+            $this->form_validation->advisor
+        );
+        echo form_dropdown('advisor', $advisor,  $options, 'id="advisor" class="required" data-native-menu="false" data-theme="c"')."<br />\n";
+    }
+    else
+    {
+        echo "No teacher registered. Contact the application administrator.";
+    }
+	
+    echo "</div>\n\n";
 
     echo '<div data-role="fieldcontain">'."\n";
     echo "<label for='parent_email1'><em>* </em> Parent email 1</label>"."\n";

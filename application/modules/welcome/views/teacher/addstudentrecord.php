@@ -31,12 +31,26 @@
 	
 	echo '<div data-role="fieldcontain">'."\n";
 	echo '<label for="studentid">Student name: </label>'."\n";
-	echo form_dropdown('studentid', $students,  NULL, 'id="studentid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	if(!empty($students))
+	{
+		echo form_dropdown('studentid', $students,  NULL, 'id="studentid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	}
+	else
+	{
+		echo "No student registered. Contact the application administrator.";
+	}
 	echo "</div>\n\n";
 
 	echo '<div data-role="fieldcontain">'."\n";
 	echo '<label for="subjectid">Subject: </label>'."\n";
-	echo form_dropdown('subjectid', $subjectlist,  NULL, 'id="subjectid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	if(!empty($subjectlist))
+	{
+		echo form_dropdown('subjectid', $subjectlist,  NULL, 'id="subjectid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	}
+	else
+	{
+		echo "No subject registered. Contact the application administrator.";
+	}
 	echo "</div>\n\n";
 
 
@@ -69,9 +83,12 @@ jQuery.extend(jQuery.mobile.datebox.prototype.options, {
 <?php
 /*
 echo "<pre>";
-print_r($subjectlist);
+//print_r($subjectlist);
 print_r($students);
 echo "</pre>";
+If(empty($students))
+{
+	echo "empty";
+}
 */
-
 ?>

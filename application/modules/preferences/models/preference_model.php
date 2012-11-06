@@ -114,19 +114,23 @@ class Preference_model extends Base_model
 	function set_item($name, $value)
 	{
 		if( is_null($name))
-        	{
-            	return false;
-        	}
+    	{
+        	return false;
+    	}
 
-        	$this->preferenceCache[$name] = $value;
+    	$this->preferenceCache[$name] = $value;
 
-        	if( is_array($value))
-        	{
-            	$value = $this->object_keyword . serialize($value);
-        	}
-        
-        	$this->db->where('name', $name);
-        	return $this->db->update(PREFERENCES, array('value'=>$value)); 
+    	if( is_array($value))
+    	{
+        	$value = $this->object_keyword . serialize($value);
+    	}
+    	if($name=='ga_password')//for ga_password encrypt it
+    	{
+    		$this->load->library('encrypt');
+    		$value = $this->encrypt->encode($value);
+    	}
+    	$this->db->where('name', $name);
+    	return $this->db->update(PREFERENCES, array('value'=>$value)); 
 	}
 }
 

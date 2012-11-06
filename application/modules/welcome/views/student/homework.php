@@ -16,14 +16,29 @@
 	echo form_input($assignmentnameatts)."\n";
 	echo "</div>\n\n";
 	
+
 	echo '<div data-role="fieldcontain">'."\n";
 	echo '<label for="subjectid"><em>* </em> Subject: </label>'."\n";
-	echo form_dropdown('subjectid', $subjectlist,  NULL, 'id="subjectid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	if(!empty($subjectlist))
+	{
+		echo form_dropdown('subjectid', $subjectlist,  NULL, 'id="subjectid" class="required" data-mini="true" data-native-menu="false"')."<br />\n";
+	}
+	else
+	{
+		echo "No subject registered. Contact the application administrator.";
+	}
 	echo "</div>\n\n";
 
 	echo '<div data-role="fieldcontain">'."\n";
 	echo '<label for="teachername"><em>* </em> Subject Teacher: </label>'."\n";
-	echo form_dropdown('teachername', $teachername,  NULL, 'id="teachername" class="required" data-mini="true" data-native-menu="false" ')."<br />\n";
+	if(!empty($teachername))
+	{
+		echo form_dropdown('teachername', $teachername,  NULL, 'id="teachername" class="required" data-mini="true" data-native-menu="false" ')."<br />\n";
+	}
+	else
+	{
+		echo "No teacher registered. Contact the application administrator.";
+	}
 	echo "</div>\n\n";
 
 	//hidden form for first and last name
@@ -43,6 +58,20 @@
 
 	</script>
 <?php
+/*
+$base=$this->config->item('base_url');
+$mystring = $base;
+$findme   = 'localhost';
+$pos = strpos($mystring, $findme);
+if(ENVIRONMENT=='development' OR $pos)
+{
+   echo "it is local";
+}
+else
+{
+	echo "not local";
+}
+*/
 /*
 $item=$this->preference->item('cachepagetime');
 var_dump($item);

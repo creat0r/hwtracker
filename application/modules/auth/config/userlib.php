@@ -87,6 +87,9 @@ $config['userlib_profile_rules']['gender'] =  'required|alpha';
 $config['userlib_profile_fields']['role'] = 'Role';
 $config['userlib_profile_rules']['role'] = 'required|alpha';
 
+$config['userlib_profile_fields']['school'] = 'School';
+$config['userlib_profile_rules']['school'] = 'alpha';
+
 
 
 /* End of file userlib.php */

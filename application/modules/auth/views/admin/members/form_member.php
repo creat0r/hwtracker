@@ -98,8 +98,19 @@
             <li>
                 <?php print form_label('Gender','gender')?>
                 Male <?php print form_radio('gender','male',$this->form_validation->set_radio('gender','male',$selected = ($this->form_validation->gender == 'male') ? TRUE : FALSE))?>
-                Female <?php print form_radio('gender','female',$this->form_validation->set_radio('gender','female',$selected = ($this->form_validation->gender == 'male') ? FALSE : TRUE))?>
+                Female <?php print form_radio('gender','female',$this->form_validation->set_radio('gender','female',$selected = ($this->form_validation->gender == 'female') ? TRUE : FALSE))?>
             </li>
+            <li>
+                <?php print form_label('School','school')?>
+                <?php
+                    $mystring = $this->form_validation->school;
+                    $findes   = 'es'; $findms='ms'; $findhs='hs';
+                    $es = strpos($mystring, $findes); $ms = strpos($mystring, $findms); $hs = strpos($mystring, $findhs);
+                    echo "ES".form_checkbox('school[]', 'es',$this->form_validation->set_checkbox('school[]','es',($es !== FALSE ) ? TRUE : FALSE));
+                    echo "MS".form_checkbox('school[]', 'ms',$this->form_validation->set_checkbox('school[]','ms',($ms !== FALSE ) ? TRUE : FALSE));
+                    echo "HS".form_checkbox('school[]', 'hs',$this->form_validation->set_checkbox('school[]','hs',($hs !== FALSE ) ? TRUE : FALSE));
+                ?>
+            </li>    
             <li>
                 <?php print form_label('Admin','role')?>
                 ES Principal <?php print form_radio('role','es_principal',$this->form_validation->set_radio('role','es_principal',$selected = ($this->form_validation->role == 'es_principal') ? TRUE : FALSE))?>

@@ -50,7 +50,7 @@ class Settings extends Admin_Controller
                 'maintenance' => array('name'=> $this->lang->line('preference_page_maintenance_debugging_settings'), 'fields'=>'page_debug,keep_error_logs_for'),
 				'modulemanagement'	  => array('name'=> $this->lang->line('preference_module_management'),'fields'=>'calendar,category,customers,filemanager,languages,menus,messages,orders,pages,products,slideshow,subscribers,homework,schools,students,subjects,teachers'),
                 'website'       => array('name'=> $this->lang->line('preference_website_configuration'),'fields'=>'main_module_name,multi_language,frontend_multi_language,website_language,categories_parent_id,playroom_parent_id,admin_email,security_method,security_question,security_answer'),
-				'homeworktracker'     => array('name'=> 'Homework Tracker', 'fields'=>'cachepagetime,first_semester_start,first_semester_end,second_semester_start,second_semester_end, email_to'),  
+				'homeworktracker'     => array('name'=> 'Homework Tracker', 'fields'=>'cachepagetime,first_semester_start,first_semester_end,second_semester_start,second_semester_end, email_to,email_text'),  
 				'slideshow'     => array('name'=> $this->lang->line('preference_frontpage_slideshow_settings'), 'fields'=>'webshop_slideshow,slideshow_two'),
 				'analytics'     => array('name'=> $this->lang->line('preference_google_analytics_settings'), 'fields'=>'ga_tracking,ga_profile,ga_email,ga_password'),
                 'rss_feed'     => array('name'=> $this->lang->line('preference_rss_feeds_settings'), 'fields'=>'dashboard_rss,dashboard_rss_count'),
@@ -140,6 +140,7 @@ class Settings extends Admin_Controller
 		$config['field']['second_semester_end'] = array('rules'=>'trim');
 		//$config['field']['email_to'] = array('type'=>'checkbox','params'=>array('options'=>array('subjectteacher'=>'Subject Teacher','advisor'=>"Advisor",'principal'=>'Principal')));
 		$config['field']['email_to'] = array('rules'=>'trim');
+		$config['field']['email_text'] = array('type'=>'textarea','params'=>array('rows'=>'20','cols'=>'300'),'rules'=>'trim');
 
 		// analytics
 		$config['field']['ga_tracking'] = array('rules'=>'trim');

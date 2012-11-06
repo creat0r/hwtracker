@@ -226,7 +226,7 @@ class MKaimonokago extends Base_model
 
     function updateItem($module,$data)
     {
-        if($module=='subjects')
+        if($module=='subjects' OR $module =='schools')
         {
             $module_table = 'hw_'.$module;
         }
@@ -296,7 +296,7 @@ class MKaimonokago extends Base_model
 
     function changeStatus($module, $id)
     {
-        if($module=='subjects')
+        if($module=='subjects' OR $module =='schools')
         {
             $table='hw_'.$module;
         }
@@ -359,7 +359,7 @@ class MKaimonokago extends Base_model
     function getInfo($module, $id, $lang_id=NULL)
     {
         $data = array();
-        if($module=='subjects')
+        if($module=='subjects' OR $module =='schools')
         {
             $table='hw_'.$module;
         }

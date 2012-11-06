@@ -209,6 +209,18 @@ $lang["preference_label_second_semester_end"]="Last Date of The First Semester";
 $lang["preference_desc_second_semester_end"]="Pleaes enter date like 2012-10-27";
 $lang["preference_label_email_to"]="Which teachers and admin do you want to send email to?";
 $lang["preference_desc_email_to"]="Enter subject,advisor,principal.";
+$lang["preference_label_email_text"]="Email Text";
+$lang["preference_desc_email_text"]=htmlspecialchars('<p>Dear parent,</p>
+
+<p>I am writing to let you know that I did not complete my homework assignment today, %1$s, in %2$s. I will make sure that it is
+completed and handed in by the next class meeting.</p>
+
+<p>Please \'Reply All\' to confirm that you have read and understand this email.</p>
+<p><a href="%3$s" target="_blank">See more details.</a> This link is avaiable for %4$s minutes.</p>
+<p>Thank you<br />
+%5$s</p>
+
+<p> -- This email was intended for the parents of %6$s and sent from %7$s %8$s. -- </p>');
 
 /**
  *     BELOW HERE DEFINE ANY LANGUAGE STRINGS FOR YOUR APPLICATIONS

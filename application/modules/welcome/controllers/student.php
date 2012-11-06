@@ -162,8 +162,12 @@ class Student extends Public_Controller
             // get the site name
             $site_name = $this->preference->item('site_name');
             $company_name = $this->preference->item('company_name');
+            $email_text =$this->preference->item('email_text');
+
+            $content=sprintf($email_text, $assignmentname, $subjectname,$link,$time,$username,$username, $company_name, $site_name);
 
 
+/*
             $content = <<<EOD
 <p>Dear parent,</p>
 
@@ -177,6 +181,7 @@ $username</p>
 
 <p style="font-size:10px; color:grey;"> -- This email was intended for the parents of $username and sent from $company_name $site_name. -- </p> 
 EOD;
+*/
 
             $data['assignmentname']=$assignmentname;
             $data['content']=$content;
@@ -240,8 +245,12 @@ EOD;
             $config['mailtype'] = 'html';
             $this->email->initialize($config); 
             $this->email->from($useremail,$username);
-
-            if(ENVIRONMENT=='development')
+            // find if the base_url is localhost
+            $base=$this->config->item('base_url');
+            $mystring = $base;
+            $findme   = 'localhost';
+            $pos = strpos($mystring, $findme);
+            if(ENVIRONMENT=='development' OR $pos)
             {
                 // send to admin_email
                 $to=$this->preference->item('admin_email'); 

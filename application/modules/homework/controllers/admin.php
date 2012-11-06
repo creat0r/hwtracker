@@ -35,6 +35,15 @@ class Admin extends Shop_Admin_Controller
     {
         // get all the homework by student
         $data['hwall']=$this->Mhomework->getallmystudents($id=NULL);
+        // get all the teacher for student advisor
+        /*
+        $where= array('group'=>5);
+        //$what='5';
+        $advisors=$this->user_model->getUsers($where);
+        $advisors=$advisors->result_array();
+        */
+        $advisors=$this->getadvisors();
+        $data['advisors']=$advisors;
         //$data = $this->common_home();
         $data['page'] = $this->config->item('backendpro_template_admin') . "homework_general";
         $data['module'] = $this->module;
@@ -90,7 +99,8 @@ class Admin extends Shop_Admin_Controller
         {
             $data['title']='Homework Missed during Week '.$lastweek;
         }
-        
+        $advisors=$this->getadvisors();
+        $data['advisors']=$advisors;
         // Set breadcrumb
         $this->bep_site->set_crumb($this->lang->line('hwezemail_homework')." by Week",$this->module.'/admin/show_week/');    
         $this->load->view($this->_container,$data);
@@ -113,7 +123,8 @@ class Admin extends Shop_Admin_Controller
         {
             $data['title']='Homework Missed during '.$lastmonth;
         }
-        
+        $advisors=$this->getadvisors();
+        $data['advisors']=$advisors;
         // Set breadcrumb
         $this->bep_site->set_crumb($this->lang->line('hwezemail_homework')." by Month",$this->module.'/admin/show_week/');    
         $this->load->view($this->_container,$data);
@@ -155,6 +166,16 @@ class Admin extends Shop_Admin_Controller
 
 
 
+    }
+
+    function getadvisors()
+    {
+        $where= array('group'=>5);
+        //$what='5';
+        $advisors=$this->user_model->getUsers($where);
+        $advisors=$advisors->result_array();
+
+        return $advisors;
     }
 
 
