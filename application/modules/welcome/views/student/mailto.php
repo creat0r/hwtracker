@@ -23,23 +23,43 @@ $principalpos = strpos($email_to, $findprincipal);
 if($subjectpos !== false)
 {
 	echo "cc to subject teacher: $teacher_gender ". $teacherdetails['last_name']."<br />\n";
+	$teacheremail=$teacherdetails['email'].",";
+}
+else
+{
+	$teacheremail=" ";
 }
 if($advisorpos !== false)
 {
 	echo "cc to advisor: $advisor_gender"." " .$advisordetails['last_name']."<br />\n";
+	$advisoremail=$advisordetails['email'].",";
+}
+else
+{
+	$advisoremail=" ";
 }
 if($principalpos !== false)
 {
 	echo "cc to principal: $principal_gender ".$principaldetails['last_name']."<br />\n";
+	$principalemail = $principaldetails['email'];
+}
+else
+{
+	$principalemail=" ";
 }
 
 echo "Subject: $subjectname homework<br />\n";
 echo $content;
 
+// if $teacheremail and $advisoremail, then make the latter empty
+if($teacheremail==$advisoremail)
+$advisoremail='';
+
 //email
 $data = array(
               'to'  => $userdetails['parent_email1']. $parent_email2,
-              'cc' => $teacherdetails['email'].", ".$advisordetails['email'].", ".$principaldetails['email'],
+              //'cc' => $teacherdetails['email'].", ".$advisordetails['email'].", ".$principaldetails['email'],
+              'cc'=>$teacheremail.$advisoremail.$principalemail,
               'email_subject'   => "$subjectname homework",
               'content'=>$content,
               'assignmentname'=>$assignmentname,

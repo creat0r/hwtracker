@@ -29,18 +29,34 @@ class Mhomework extends CI_Model
     }
 
 
-
-
-    function gethw($what)// by studentid
+    function gethwdetails()
     {
-        
-        $Q="SELECT hw_subjects.name, COUNT(hw_homework.id) 
+
+
+
+    }
+
+    function gethw($what, $nogroup=NULL)// by studentid
+    {
+        if(empty($nogroup))
+        {
+            $Q="SELECT hw_subjects.name, COUNT(hw_homework.id) 
             FROM hw_homework 
             LEFT JOIN hw_subjects
             ON hw_subjects.id= hw_homework.subjectid 
             WHERE hw_homework.studentid = $what 
             GROUP BY subjectid 
             ORDER BY hw_subjects.name";
+        }
+        else
+        {
+            $Q="SELECT hw_homework.id, hw_subjects.name, assignment_name
+            FROM hw_homework 
+            LEFT JOIN hw_subjects
+            ON hw_subjects.id= hw_homework.subjectid 
+            WHERE hw_homework.studentid = $what 
+            ORDER BY hw_subjects.name";
+        }
 
         $query = $this->db->query($Q);
 

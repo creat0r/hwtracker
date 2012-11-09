@@ -11,6 +11,6 @@ hwezemail2.sublime-workspace
 # Vim leave-behinds
 *.swp
 *.sql
-
+*.zip
 # Windows files
 *.bak

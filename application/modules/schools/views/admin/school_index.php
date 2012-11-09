@@ -21,10 +21,11 @@
         {
             foreach($items as $item)
             {
-            $active_icon = ($item['status']=='active'?'tick':'cross');
-            $statuslink = anchor("kaimonokago/admin/changeStatus/schools/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
-            $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
-             if ($item['status']=='inactive')
+                $item = str_replace("'", "\'", $item);
+                $active_icon = ($item['status']=='active'?'tick':'cross');
+                $statuslink = anchor("kaimonokago/admin/changeStatus/schools/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
+                $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
+                if ($item['status']=='inactive')
                 {
                     $deletelink = anchor('kaimonokago/admin/delete/schools/'.$item['id'],$this->bep_assets->icon('delete'), array("class" => "delete_link","onclick"=>"return confirmSubmit(\"".$item['name']."\")"));
                 }
@@ -56,11 +57,11 @@
 
 
 <?php
-
+/*
 echo "<pre>";
 print_r($items);
 echo "</pre>";
-
+*/
 
 
 ?>

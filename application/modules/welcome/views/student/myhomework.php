@@ -38,6 +38,12 @@
     // Set chart options
     var options = {
         'title':'Missed Homework',
+        //'height':500,
+        <?php
+                    $sub_num=count($hwdetails);
+                    $height=$sub_num*50;
+                    echo "'height':$height,"
+                ?>
         hAxis: {
             //gridlines: {count: 5},
             baseline:0,
@@ -85,7 +91,7 @@ else
     // Set chart options
     var monthoptions = {'title':'Missed Homework by Month',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
                  colors:[<?php echo $colors; ?>]
              };
@@ -112,7 +118,7 @@ else
     // Set chart options
     var weekoptions = {'title':'Missed Homework by Week',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
 
                 colors:[<?php echo $colors; ?>]
@@ -136,9 +142,9 @@ else
     <?php echo $hwtotal['totalmissed'];?>
     </h3>
 </div>
-    <div id="subject_div" style="width:90%; height:300"></div>
-    <div id="month_div" style="width:90%; height:300"></div>
-    <div id="week_div" style="width:90%; height:300"></div>
+    <div id="subject_div"></div>
+    <div id="month_div"></div>
+    <div id="week_div"></div>
 <?php
 
 /*

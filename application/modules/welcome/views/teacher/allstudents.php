@@ -69,82 +69,19 @@
     var options = {'title':'Missed Homework',
                  //'width':90%,
                  //'height':300
-//setup colors
-<?php 
-/*
-if ($hwtotal['totalmissed']>10)
-{
-    $colors="'red','#004411'";
-}
-elseif($hwtotal['totalmissed']>5)
-{
-    $colors="'orange','#FF6A00'";
-}
-else
-{
-    $colors="'yellow','#FFC300'";
-}*/
-?>
+                <?php
+                // find the height
+                $studentnumber = count($allmystudents);
+                $height = $studentnumber*50;
+                echo "'height':".$height."," ?>
+                //setup colors
                  colors:['red','#004411']
              };
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.BarChart(document.getElementById('subject_div'));
     chart.draw(data, options);
-/*
-    // by month
-    // Create the data table.
-    var monthdata = new google.visualization.DataTable();
-    monthdata.addColumn('string', 'Month');
-    monthdata.addColumn('number', 'Number');
-    monthdata.addRows([
-    <?php
-        foreach($hwdetailsbymonth as $hw)
-        {
-            echo "['".$hw['month']."',".$hw['totalMissed']."],";
-        }
-        ?>
-    ]);
 
-    // Set chart options
-    var monthoptions = {'title':'Missed Homework by Month',
-                 //'width':90%,
-                 //'height':300
-                 //colors:['red','#004411']
-                 colors:[<?php echo $colors; ?>]
-             };
-
-    // Instantiate and draw our chart, passing in some options.
-    var month = new google.visualization.ColumnChart(document.getElementById('month_div'));
-    month.draw(monthdata, monthoptions);
-
-
-    // by week
-    // Create the data table.
-    var weekdata = new google.visualization.DataTable();
-    weekdata.addColumn('string', 'Week');
-    weekdata.addColumn('number', 'Number');
-    weekdata.addRows([
-    <?php
-        foreach($hwdetailsbyweek as $hw)
-        {
-            echo "['".$hw['weekno']."',".$hw['totalMissed']."],";
-        }
-        ?>
-    ]);
-
-    // Set chart options
-    var weekoptions = {'title':'Missed Homework by Week',
-                 //'width':90%,
-                 //'height':300
-                 //colors:['red','#004411']
-                 colors:[<?php echo $colors; ?>]
-             };
-
-    // Instantiate and draw our chart, passing in some options.
-    var week = new google.visualization.ColumnChart(document.getElementById('week_div'));
-    week.draw(weekdata, weekoptions);
-*/
     }
 </script>
 

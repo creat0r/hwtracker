@@ -22,10 +22,11 @@
         {
             foreach($items as $item)
             {
-            $active_icon = ($item['status']=='active'?'tick':'cross');
-            $statuslink = anchor("kaimonokago/admin/changeStatus/subjects/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
-            $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
-             if ($item['status']=='inactive')
+                $item = str_replace("'", "\'", $item);
+                $active_icon = ($item['status']=='active'?'tick':'cross');
+                $statuslink = anchor("kaimonokago/admin/changeStatus/subjects/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
+                $editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
+                if ($item['status']=='inactive')
                 {
                     $deletelink = anchor('kaimonokago/admin/delete/subjects/'.$item['id'],$this->bep_assets->icon('delete'), array("class" => "delete_link","onclick"=>"return confirmSubmit(\"".$item['name']."\")"));
                 }
@@ -33,8 +34,8 @@
                 {
                     $deletelink ='';
                 }
-              //$link = "testing";  
-                echo "['".$item['name']."','".$statuslink."','".$editlink.$deletelink."' ],\n";
+                  //$link = "testing";  
+                    echo "['".$item['name']."','".$statuslink."','".$editlink.$deletelink."' ],\n";
             }
         }
 	?>

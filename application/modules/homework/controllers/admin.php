@@ -63,7 +63,9 @@ class Admin extends Shop_Admin_Controller
         $student=$this->user_model->getUsers(array('users.id'=>$id));
         $student = $student->row_array();
         $studentname=$student['first_name']. " ".$student['last_name'];
-        
+        // get all student's data for table
+        $data['studenthws']=$this->Mhomework->gethw($id, TRUE);
+        // get data for week, month
         $data['hws']=$this->Mhomework->gethw($id);
         $data['hwbymonth']=$this->Mhomework->gethwbydate('m', $id);
         $data['hwbyweek']=$this->Mhomework->gethwbydate('w', $id);

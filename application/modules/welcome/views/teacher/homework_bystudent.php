@@ -1,5 +1,6 @@
 <?php 
     $this->load->view('teacher/topmenu');
+    //echo count($hws);
 ?>
 
 <div class="clearboth">&nbsp;</div>
@@ -27,22 +28,22 @@
     		echo "['".$hw['name']."',".$hw['COUNT(hw_homework.id)']."],";
     	}
     	?>
-    /*['Mathematics', 3],
-    ['Science', 1],
-    ['Humanities', 1], 
-    ['English', 3],
-    ['Music', 2]
-    */
     ]);
 
     // Set chart options
     var options = {'title':'Missed Homework',
     //hAxis.gridlines: {count: 1},
-                 //'width':90%,
-                 //'height':300
+                //'width':90%,
+                //'height':300,
+                <?php
+                    $sub_num=count($hws);
+                    $height=$sub_num*50;
+                    echo "'height':$height,"
+                ?>
                  hAxis: {
-            //gridlines: {count: 5},
+            //gridlines: {count: 5},//The number of horizontal gridlines inside the chart area. Minimum value is 2
             baseline:0,
+            //direction:-1,
         },
 //setup colors
 <?php 
@@ -83,7 +84,7 @@ else
     // Set chart options
     var monthoptions = {'title':'Missed Homework by Month',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
                  colors:[<?php echo $colors; ?>]
              };
@@ -110,7 +111,7 @@ else
     // Set chart options
     var weekoptions = {'title':'Missed Homework by Week',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
                  colors:[<?php echo $colors; ?>]
              };

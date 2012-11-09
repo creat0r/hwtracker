@@ -1,4 +1,7 @@
 <?php
+
+//print_r($apcinfo);
+	;
 	$this->load->view('student/topmenu');
 
 	print displayStatus();

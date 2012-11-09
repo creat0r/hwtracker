@@ -4,14 +4,48 @@
 <script type="text/javascript">
     
     // Load the Visualization API and the piechart package.
-    google.load('visualization', '1.0', {'packages':['corechart']});
-
+    google.load('visualization', '1.0', {'packages':['table, corechart']});
+    google.setOnLoadCallback(drawTable);
     // Set a callback to run when the Google Visualization API is loaded.
     google.setOnLoadCallback(drawChart);
 
     // Callback that creates and populates a data table, 
     // instantiates the pie chart, passes in the data and
     // draws it.
+
+    // start of tabel
+    function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Subject Name');
+        data.addColumn('string', 'Assignment name');
+        data.addColumn('string', 'Action');
+        data.addRows([
+    <?php
+        if(count($studenthws))
+        {
+            foreach($studenthws as $item)
+            {
+                $item = str_replace("'", "\'", $item);
+                //$active_icon = ($item['status']=='active'?'tick':'cross');
+                //$statuslink = anchor("kaimonokago/admin/changeStatus/subjects/".$item['id'],$this->bep_assets->icon($active_icon), array('class' => $item['status']. ' changestatus'));
+                //$editlink = anchor($module.'/admin/edit/'.$item['id'],$this->bep_assets->icon('pencil'));
+                
+                $deletelink = anchor("kaimonokago/admin/delete/homework/".$item['id'],$this->bep_assets->icon('delete'), array("class" => "delete_link","onclick"=>"return confirmSubmit(\"".$item['assignment_name']."\")"));
+                
+                //$link = "testing";  
+                echo "['".$item['name']."','".$item['assignment_name']."','".$deletelink."' ],\n";
+            }
+        }
+    ?>
+
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+        table.draw(data, {showRowNumber: true, allowHtml:true});
+    }
+    // end of table
+
+    // Barchart
     function drawChart() {
 
     // Create the data table.
@@ -25,18 +59,17 @@
     		echo "['".$hw['name']."',".$hw['COUNT(hw_homework.id)']."],";
     	}
     	?>
-    /*['Mathematics', 3],
-    ['Science', 1],
-    ['Humanities', 1], 
-    ['English', 3],
-    ['Music', 2]
-    */
     ]);
 
     // Set chart options
     var options = {'title':'Missed Homework by Subject',
                  //'width':90%,
                  //'height':300
+                 <?php
+                    $sub_num=count($hws);
+                    $height=$sub_num*50;
+                    echo "'height':$height,"
+                ?>
 //setup colors
 <?php 
 if ($hwtotal['totalmissed']>=10)
@@ -76,7 +109,7 @@ else
     // Set chart options
     var monthoptions = {'title':'Missed Homework by Month',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
                  colors:[<?php echo $colors; ?>]
              };
@@ -103,7 +136,7 @@ else
     // Set chart options
     var weekoptions = {'title':'Missed Homework by Week',
                  //'width':90%,
-                 //'height':300
+                 'height':400,
                  //colors:['red','#004411']
                  colors:[<?php echo $colors; ?>]
              };
@@ -119,12 +152,16 @@ else
     <?php echo $hwtotal['totalmissed'];?>
     </h3>
 </div>
-    <div id="subject_div" style="width:90%; height:300"></div>
-    <div id="month_div" style="width:90%; height:300"></div>
-    <div id="week_div" style="width:90%; height:300"></div>
+    <div id="table_div"></div>
+    <div id="subject_div"></div>
+    <div id="month_div"></div>
+    <div id="week_div"></div>
 
 <?php
-
+/*
+echo "<pre>studenthws ";
+print_r($studenthws);
+echo "</pre>";
 echo "<pre>hws ";
 print_r($hws);
 echo "</pre>";
@@ -134,7 +171,7 @@ echo "</pre>";
 echo "<pre>hwbyweek ";
 print_r($hwbyweek);
 echo "</pre>";
-
+*/
 ?>
 
 

@@ -18,6 +18,7 @@ class Student extends Public_Controller
         $this->load->model('Mhomework');
         $this->configcachetime=$this->config->item('cachetime');
         $this->username = $this->session->userdata('username');
+        define('APC_EXTENSION_LOADED', extension_loaded('apc') && ini_get('apc.enabled'));
         if($this->username)
         {
             if($this->_checksetting()==FALSE)
@@ -145,43 +146,52 @@ class Student extends Public_Controller
 
             // prepare for the content
             $data['username']=$username=$first_name." ".$last_name;
-            // for link to show student missed homework
-            $encrypted = md5($first_name.$last_name);
-            $link=base_url()."index.php/welcome/getpage/".$encrypted;
-
-            // get time from preference or config
-            if($this->preference->item('cachepagetime')>0)
-            {
-                $cachetime=$this->preference->item('cachepagetime');
-            }
-            else
-            {
-                $cachetime=$this->configcachetime;
-            }
-            $time = $cachetime/60;
             // get the site name
             $site_name = $this->preference->item('site_name');
             $company_name = $this->preference->item('company_name');
             $email_text =$this->preference->item('email_text');
 
-            $content=sprintf($email_text, $assignmentname, $subjectname,$link,$time,$username,$username, $company_name, $site_name);
+            // for cache, check it if apc is available
+            $apc= APC_EXTENSION_LOADED;
+            if(!empty($apc))
+            {
+                // for link to show student missed homework
+                $encrypted = md5($first_name.$last_name);
+                $link=base_url()."index.php/welcome/getpage/".$encrypted;
 
+                // get time from preference or config
+                if($this->preference->item('cachepagetime')>0)
+                {
+                    $cachetime=$this->preference->item('cachepagetime');
+                }
+                else
+                {
+                    $cachetime=$this->configcachetime;
+                }
+                $time = $cachetime/60;
 
-/*
-            $content = <<<EOD
+                $content=sprintf($email_text, $assignmentname, $subjectname,$link,$time,$username,$username, $company_name, $site_name);
+            }
+            else
+            {
+
+$content = <<<EOD
 <p>Dear parent,</p>
 
 <p>I am writing to let you know that I did not complete my homework assignment today, $assignmentname, in $subjectname. I will make sure that it is
 completed and handed in by the next class meeting.</p>
 
 <p>Please 'Reply All' to confirm that you have read and understand this email.</p>
-<p><a href="$link" target="_blank">See more details.</a> This link is avaiable for $time minutes.</p>
+
 <p>Thank you<br />
 $username</p>
 
 <p style="font-size:10px; color:grey;"> -- This email was intended for the parents of $username and sent from $company_name $site_name. -- </p> 
 EOD;
-*/
+
+
+            }
+            
 
             $data['assignmentname']=$assignmentname;
             $data['content']=$content;
@@ -485,24 +495,30 @@ EOD;
             $data['title']="My Missed Homework";
             $data['header']=$this->preference->item('site_name');
             $data['fttitle']=$this->preference->item('company_name');
-            // save it to cache  
-            $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-            $data['encrypted']=$encrypted;
-            $cachedpage = $data;
-
-            // get time from preference
-             
-            if($this->preference->item('cachepagetime')>0)
+            // use preference if the server has APC or not
+            // at the moment no
+            $apc= APC_EXTENSION_LOADED;
+            if(!empty($apc))
             {
-                $cachetime=$this->preference->item('cachepagetime');
-            }
-            else
-            {
-                $cachetime=$this->configcachetime;
-            }
+                // save it to cache  
+                $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+                $data['encrypted']=$encrypted;
+                $cachedpage = $data;
 
-            // Save into the cache for 5 minutes
-            $this->cache->save($encrypted, $cachedpage, $cachetime);
+                // get time from preference
+                 
+                if($this->preference->item('cachepagetime')>0)
+                {
+                    $cachetime=$this->preference->item('cachepagetime');
+                }
+                else
+                {
+                    $cachetime=$this->configcachetime;
+                }
+
+                // Save into the cache for 5 minutes
+                $this->cache->save($encrypted, $cachedpage, $cachetime);
+            }
 
             $data['page']="student/myhomework";
 

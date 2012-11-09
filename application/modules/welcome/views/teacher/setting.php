@@ -1,4 +1,8 @@
-<?php // dialog page
+<?php // welcome/views/teacher/setting.php
+
+    //$this->load->view('teacher/topmenu');
+    
+    // dialog page
     //echo '<div data-role="content" data-theme="b">';  
 	print displayStatus();
     print "<h2>$title</h2>";
@@ -88,30 +92,6 @@
 
     echo form_hidden('id', $this->form_validation->id);
 
-/* // move to change password
-    echo '<div data-role="fieldcontain">'."\n";
-    echo "<label for='password'>".$this->lang->line('userlib_password')."</label>"."\n";
-        $password= array(
-        'id'=>'password',
-        'class'=>'required',
-        'name'=>'password',
-        'type'=>'password'
-        );
-    echo form_input($password)."\n";
-    echo "</div>\n\n";
-
-
-    echo '<div data-role="fieldcontain">'."\n";
-    echo "<label for='confirm_password'>".$this->lang->line('userlib_confirm_password')."</label>"."\n";
-        $confirm_password= array(
-        'id'=>'confirm_password',
-        'class'=>'required',
-        'name'=>'confirm_password',
-        'type'=>'password'
-        );
-    echo form_input($confirm_password)."\n";
-    echo "</div>\n\n";
-*/
     // Only display captcha if needed
 
     echo '<a href="'.site_url().'/welcome/teacher" data-role="button" data-icon="back" data-inline="true" data-transition="pop" data-mini="true" data-theme="e">'.$this->lang->line('general_cancel').'</a>';

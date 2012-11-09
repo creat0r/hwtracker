@@ -19,13 +19,17 @@
         data.addColumn('string', 'Parent email 1');
         data.addColumn('string', 'Parent email 2');
         data.addColumn('string', 'Advisor');
+        data.addColumn('string', 'Active');
+        data.addColumn('string', 'Edit');
         //data.addColumn('number', '');
         data.addRows([
 	 <?php
    if(count($items))
    {
+
         foreach($items as $item)
         {
+            $item = str_replace("'", "\'", $item);
             foreach($advisors as $key=>$advisor)
             {
                 if($item['advisor']==$advisor['id'])
@@ -33,18 +37,14 @@
                     $ad=$advisor['last_name'];
                 }
             }
+            $active_icon = ($item['active']=='1'?'tick':'cross');
+            $editlink = anchor('auth/admin/members/form/'.$item['id'],$this->bep_assets->icon('pencil'));
             echo "['".$item['first_name']."', '".$item['last_name']."', '".$item['email']
-            ."', '".$item['parent_email1']."', '".$item['parent_email2']."', '".$ad."'],";
+            ."', '".$item['parent_email1']."', '".$item['parent_email2']."', '".$ad."', '".$this->bep_assets->icon($active_icon)."','".$editlink."'],";
         }
    }
 		
 	?>
-
-/*
-          ['Mike', 5],
-          ['Jim',  2],
-          ['Alice', 1],
-          ['Bob',  4]*/
 
         ]);
 

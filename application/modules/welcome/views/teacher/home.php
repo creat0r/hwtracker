@@ -1,6 +1,7 @@
 <?php //welcome/views/teacher/home page ?>
 <?php 
     $this->load->view('teacher/topmenu');
+
 ?>
 
 
@@ -74,9 +75,13 @@
     // Set chart options
     var options = {'title':'Missed Homework',
                  //'width':90%,
-                 //'height':300
-
-                 colors:['red','#004411']
+                 //'height':700,
+                <?php
+                // find the height
+                $studentnumber = count($advisory);
+                $height = $studentnumber*50;
+                echo "'height':".$height."," ?>
+                colors:['red','#004411']
              };
 
     // Instantiate and draw our chart, passing in some options.
@@ -140,7 +145,7 @@
 </script>
 
 <!--Div that will hold the pie chart-->
-<div id="subject_div" style="width:90%; height:300"></div>
+<div id="subject_div" style="height:500"></div>
    
 
 
